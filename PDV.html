@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FishAqua Pets - Registrar Venda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body overflow-x-hidden">
+
+    <div id="layout-wrapper" class="flex min-h-screen">
+
+        <button id="btn-open-sidebar" class="sidebar-toggle-btn open-btn fixed top-6 left-6 hidden shadow-figma z-50">
+            ▶
+        </button>
+
+        <aside id="app-sidebar" class="sidebar-container shadow-figma fixed top-0 left-0 h-full z-40 transform translate-x-0 transition-transform duration-300">
+            <div class="sidebar-header">
+                <div class="profile-box">
+                    <div class="profile-avatar"> 
+                        <img src="imagens/logo.png" alt="Avatar" class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <span class="profile-name">Olá! Jhon Doe.</span>
+                </div>
+                <button id="btn-close-sidebar" class="sidebar-toggle-btn close-btn">◀</button>
+            </div>
+
+            <div class="sidebar-item darkmode-toggle">
+                <span class="item-text text-gray-700">Modo noturno</span>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <hr class="sidebar-divider">
+
+            <nav class="sidebar-nav">
+                <a href="index.html" class="sidebar-link">
+                    <span class="nav-icon">🏠</span>
+                    <span class="item-text">Pagina inicial</span>
+                </a>
+                <a href="estoque.html" class="sidebar-link active">
+                    <span class="nav-icon">📦</span>
+                    <span class="item-text">Estoque</span>
+                </a>
+                <a href="vendas.html" class="sidebar-link">
+                    <span class="nav-icon">💵</span>
+                    <span class="item-text">Vendas</span>
+                </a>
+                <a href="servicos.html" class="sidebar-link">
+                    <span class="nav-icon">🛠️</span>
+                    <span class="item-text">Serviços</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="https://www.instagram.com/fishaquapets/" target="_blank" class="sidebar-link">
+                    <span class="nav-icon">📸</span>
+                    <span class="item-text">Instagram</span>
+                </a>
+                <a href="central-ajuda.html" class="sidebar-link">
+                    <span class="nav-icon">❓</span>
+                    <span class="item-text">Central de ajuda</span>
+                </a>
+            </div>
+        </aside>
+
+        <main id="main-content" class="main-content-area flex-1 p-8 ml-64 transition-all duration-300">
+            
+            <header class="flex items-center justify-start gap-4 mb-6 w-full pl-10">
+                <img src="imagens/logo.png" alt="Logo FishAqua Pets" class="w-12 h-12 object-cover rounded-full shadow-sm">
+                
+                <div class="flex flex-col">
+                    <span class="text-2xl font-black text-[var(--navy-primary)] tracking-wide leading-none">FISH AQUA PETS 🦴</span>
+                </div>
+            </header>
+
+            <div class="text-center mb-6">
+                <h1 class="text-xl font-bold text-navy">Registrar venda</h1>
+            </div>
+
+            <div class="app-grid max-w-[1200px] mx-auto">
+                
+                <div class="left-column">
+                    <div class="card shadow-figma">
+                        <div class="search-container">
+                            <span class="search-icon">🔍</span>
+                            <input type="text" placeholder="Buscar produto" class="search-input">
+                            <span class="filter-icon">⏳</span>
+                        </div>
+                        <div class="product-list">
+                            <div class="product-item">
+                                <span class="product-name">Ração</span>
+                                <div class="counter-actions">
+                                    <span class="counter-value">0</span>
+                                    <div class="counter-buttons"><button class="btn-step">+</button><button class="btn-step">-</button></div>
+                                    <button class="btn-add">ADD</button>
+                                </div>
+                            </div>
+                            <div class="product-item">
+                                <span class="product-name">Ração gato adulto</span>
+                                <div class="counter-actions">
+                                    <span class="counter-value">0</span>
+                                    <div class="counter-buttons"><button class="btn-step">+</button><button class="btn-step">-</button></div>
+                                    <button class="btn-add">ADD</button>
+                                </div>
+                            </div>
+                            <div class="product-item">
+                                <span class="product-name">Saco de ração coelho</span>
+                                <div class="counter-actions">
+                                    <span class="counter-value">0</span>
+                                    <div class="counter-buttons"><button class="btn-step">+</button><button class="btn-step">-</button></div>
+                                    <button class="btn-add">ADD</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-fields-grid">
+                        <div>
+                            <label class="field-label">Data da venda</label>
+                            <input type="date" class="form-input shadow-figma">
+                        </div>
+                        <div>
+                            <label class="field-label">Produto</label>
+                            <select class="form-select shadow-figma"><option>Selecione o produto</option></select>
+                        </div>
+                        <div>
+                            <label class="field-label">Forma de pagamento</label>
+                            <select class="form-select shadow-figma"><option>Selecione a forma</option></select>
+                        </div>
+                        <div>
+                            <label class="field-label">Tipo de venda</label>
+                            <select class="form-select shadow-figma"><option>Selecione o tipo</option></select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="field-label">Descrição</label>
+                        <textarea rows="3" placeholder="Digite aqui as informações sobre a venda..." class="form-textarea shadow-figma"></textarea>
+                    </div>
+                </div>
+
+                <div class="right-column card shadow-figma container-cart">
+                    <div class="cart-content">
+                        <div class="cart-header">
+                            <h2 class="cart-title">🛒 Carrinho</h2>
+                            <span class="subtotal-label">Sub tot.</span>
+                        </div>
+                        <div class="cart-items-list">
+                            <div class="cart-item">
+                                <div class="cart-item-info">
+                                    <span class="item-title">Ração peixe</span>
+                                    <span class="item-subtitle">R$ 12,00 (Unit)</span>
+                                </div>
+                                <div class="cart-item-actions">
+                                    <div class="qty-badge"><span>Qtd: 5</span><span class="btn-delete">🗑️</span></div>
+                                    <span class="item-total-price">R$ 60,00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cart-summary">
+                        <div class="summary-row row-delivery">
+                            <label class="checkbox-delivery-label">
+                                <input type="checkbox" checked class="checkbox-delivery"> ENT. / FRETE
+                            </label>
+                            <span class="delivery-price">R$ 0,00</span>
+                        </div>
+                        <div class="summary-row text-gray-muted">
+                            <span>Desconto</span><span class="discount-badge">3%</span>
+                        </div>
+                        <div class="total-row">
+                            <span class="total-label">Total</span>
+                            <span class="total-amount">R$ 77,60</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <footer class="actions-footer max-w-[1200px] mx-auto">
+                <a href="vendas.html" class="btn-action btn-cancel flex items-center justify-center">
+                    Limpar (Cancelar)
+                </a>
+                <a href="vendas.html" class="btn-action btn-save flex items-center justify-center text-center">
+                    Salvar (Finalizar)
+                </a>
+            </footer>
+
+        </main>
+    </div>
+
+<script src="sidebar.js"></script>
+</body>
+</html>

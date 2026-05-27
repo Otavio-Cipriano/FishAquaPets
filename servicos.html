@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FishAqua Pets - Serviços</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body overflow-x-hidden">
+
+    <div id="layout-wrapper" class="flex min-h-screen">
+
+        <button id="btn-open-sidebar" class="sidebar-toggle-btn open-btn fixed top-6 left-6 hidden shadow-figma z-50">
+            ▶
+        </button>
+
+        <aside id="app-sidebar" class="sidebar-container shadow-figma fixed top-0 left-0 h-full z-40 transform translate-x-0 transition-transform duration-300">
+            
+            <div class="sidebar-header">
+                <div class="profile-box">
+                    <div class="profile-avatar">
+                        <img src="imagens/logo.png" alt="Avatar" class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <span class="profile-name">Olá! Jhon Doe.</span>
+                </div>
+                <button id="btn-close-sidebar" class="sidebar-toggle-btn close-btn">
+                    ◀
+                </button>
+            </div>
+
+            <div class="sidebar-item darkmode-toggle">
+                <span class="item-text text-gray-700">Modo noturno</span>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <hr class="sidebar-divider">
+
+            <nav class="sidebar-nav">
+                <a href="index.html" class="sidebar-link">
+                    <span class="nav-icon">🏠</span>
+                    <span class="item-text">Pagina inicial</span>
+                </a>
+                <a href="estoque.html" class="sidebar-link">
+                    <span class="nav-icon">📦</span>
+                    <span class="item-text">Estoque</span>
+                </a>
+                <a href="vendas.html" class="sidebar-link">
+                    <span class="nav-icon">💵</span>
+                    <span class="item-text">Vendas</span>
+                </a>
+                <a href="servicos.html" class="sidebar-link active">
+                    <span class="nav-icon">🛠️</span>
+                    <span class="item-text">Serviços</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="https://www.instagram.com/fishaquapets/" target="_blank" class="sidebar-link">
+                    <span class="nav-icon">📸</span>
+                    <span class="item-text">Instagram</span>
+                </a>
+                <a href="central-ajuda.html" class="sidebar-link">
+                    <span class="nav-icon">❓</span>
+                    <span class="item-text">Central de ajuda</span>
+                </a>
+            </div>
+        </aside>
+
+        <main id="main-content" class="main-content-area flex-1 p-8 ml-64 transition-all duration-300 !w-full !max-w-none">
+            
+            <header class="flex items-center justify-start gap-4 mb-6 w-full max-w-[1400px] mx-auto">
+                <img src="imagens/logo.png" alt="Logo FishAqua Pets" class="w-12 h-12 object-cover rounded-full shadow-sm">
+                <div class="flex flex-col">
+                    <span class="text-2xl font-black text-[var(--navy-primary)] tracking-wide leading-none">FISH AQUA PETS 🦴</span>
+                </div>
+            </header>
+
+            <div class="flex items-center gap-6 mb-8 w-full !max-w-[1400px] mx-auto">
+                <div class="search-container flex-grow relative mb-0 dashboard-search !w-full">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Pesquisar serviço" class="search-input !w-full">
+                    <span class="filter-icon">⏳</span>
+                </div>
+                <a href="#" class="btn-action btn-save flex items-center justify-center text-center header-btn-new whitespace-nowrap">
+                    Novo serviço
+                </a>
+            </div>
+
+            <div class="sales-list w-full !max-w-[1400px] mx-auto flex flex-col gap-4">
+                
+                <div class="sale-card shadow-figma !w-full">
+                    <div class="sale-info">
+                        <span class="sale-product-title">Entrega domiciliar</span>
+                        <div class="flex items-center gap-6 mt-1">
+                            <span class="text-sm font-medium text-gray-600">Pedro Santos</span>
+                            <span class="sale-date !mt-0">30/10/2026</span>
+                        </div>
+                    </div>
+                    <div class="sale-meta">
+                        <span class="sale-price">R$: 67,67</span>
+                        <span class="status-tag status-success">Concluída</span>
+                    </div>
+                </div>
+
+                <div class="sale-card shadow-figma !w-full">
+                    <div class="sale-info">
+                        <span class="sale-product-title">Manutenção de aquário</span>
+                        <div class="flex items-center gap-6 mt-1">
+                            <span class="text-sm font-medium text-gray-600">Pedro Santos</span>
+                            <span class="sale-date !mt-0">30/05/2026</span>
+                        </div>
+                    </div>
+                    <div class="sale-meta">
+                        <span class="sale-price">R$: 36,50</span>
+                        <span class="status-tag status-warning">Agendada</span>
+                    </div>
+                </div>
+
+                <div class="sale-card shadow-figma !w-full">
+                    <div class="sale-info">
+                        <span class="sale-product-title">Manutenção de aquário</span>
+                        <div class="flex items-center gap-6 mt-1">
+                            <span class="text-sm font-medium text-gray-600">Pedro Santos</span>
+                            <span class="sale-date !mt-0">20/03/2026</span>
+                        </div>
+                    </div>
+                    <div class="sale-meta">
+                        <span class="sale-price">R$: 62,35</span>
+                        <span class="status-tag status-success">Concluída</span>
+                    </div>
+                </div>
+
+                <div class="sale-card shadow-figma !w-full">
+                    <div class="sale-info">
+                        <span class="sale-product-title">Entrega domiciliar</span>
+                        <div class="flex items-center gap-6 mt-1">
+                            <span class="text-sm font-medium text-gray-600">Pedro Santos</span>
+                            <span class="sale-date !mt-0">06/04/2026</span>
+                        </div>
+                    </div>
+                    <div class="sale-meta">
+                        <span class="sale-price">R$: 80,30</span>
+                        <span class="status-tag bg-blue-50 text-blue-600 border border-blue-200">Em curso</span>
+                    </div>
+                </div>
+
+                <div class="sale-card shadow-figma !w-full">
+                    <div class="sale-info">
+                        <span class="sale-product-title">Manutenção de aquário</span>
+                        <div class="flex items-center gap-6 mt-1">
+                            <span class="text-sm font-medium text-gray-600">Pedro Santos</span>
+                            <span class="sale-date !mt-0">06/04/2026</span>
+                        </div>
+                    </div>
+                    <div class="sale-meta">
+                        <span class="sale-price">R$: 80,30</span>
+                        <span class="status-tag status-danger">Cancelado</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+<script src="sidebar.js"></script>
+</body>
+</html>

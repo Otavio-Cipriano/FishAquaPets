@@ -1,0 +1,710 @@
+/* ==========================================================================
+   PALETA DE CORES E ESTILOS CUSTOMIZADOS (FISHAQUA PETS)
+   ========================================================================== */
+
+:root {
+    --bg-app: #EAF4FC;          /* Azul claro de fundo do Figma */
+    --navy-primary: #1E4E8C;    /* Azul escuro institucional (Textos e Títulos) */
+    --orange-cancel: #1E4E8C;   /* Cor adaptada para o botão limpar/cancelar */
+    --blue-save: #34A8E0;       /* Azul brilhante do botão finalizar */
+    --orange-accent: #F17322;   /* Laranja de destaque da marca */
+}
+
+/* Configurações Gerais do Corpo */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-app);
+    min-height: 100vh;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Layout Estrutural */
+.main-container {
+    width: 100%;
+    max-width: 72rem; /* max-w-6xl */
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.app-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+/* Mudança para 2 colunas em telas de computador (Desktop) */
+@media (min-width: 1024px) {
+    .app-grid {
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+    }
+    .left-column {
+        grid-column: span 5 / span 5;
+    }
+    .right-column {
+        grid-column: span 7 / span 7;
+    }
+}
+
+/* Componentes de Estilo Comuns */
+.card {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 1rem;
+    border: 1px solid #f3f4f6;
+}
+
+.shadow-figma {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+/* Customização da Logo */
+.logo-box {
+    display: flex;
+    flex-direction: column;
+}
+.logo-main {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--navy-primary);
+    letter-spacing: 0.05em;
+}
+.logo-sub {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--orange-accent);
+    letter-spacing: 0.1em;
+    margin-left: 1.75rem;
+}
+.page-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--navy-primary);
+}
+.header-spacer {
+    width: 8rem;
+}
+
+/* Coluna Esquerda: Busca e Inputs */
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.search-container {
+    position: relative;
+    margin-bottom: 0.75rem;
+}
+.search-icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0.75rem;
+    display: flex;
+    align-items: center;
+    color: #9ca3af;
+}
+.filter-icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0.75rem;
+    display: flex;
+    align-items: center;
+    color: #9ca3af;
+    cursor: pointer;
+}
+.search-input {
+    width: 100%;
+    padding: 0.5rem 2rem;
+    background-color: #f9fafb;
+    border: 1px solid transparent;
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.search-input:focus {
+    border-color: #60a5fa;
+}
+
+/* Lista de Produtos */
+.product-list {
+    display: flex;
+    flex-direction: column;
+}
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.625rem 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+.product-item:last-child {
+    border-bottom: none;
+}
+.product-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--navy-primary);
+}
+.counter-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.counter-value {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #4b5563;
+}
+.counter-buttons {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.625rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.25rem;
+    background-color: #f9fafb;
+    color: #6b7280;
+    padding: 0 0.25rem;
+}
+.btn-step:hover {
+    color: #000000;
+}
+.btn-add {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--navy-primary);
+}
+.btn-add:hover {
+    text-decoration: underline;
+}
+
+/* Campos do Formulário */
+.form-fields-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+.field-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--navy-primary);
+    margin-bottom: 0.25rem;
+}
+.form-input, .form-select, .form-textarea {
+    width: 100%;
+    padding: 0.625rem;
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+    color: #4b5563;
+    border: 1px solid transparent;
+    outline: none;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: #60a5fa;
+}
+.form-textarea {
+    resize: none;
+}
+
+/* Coluna Direita: Carrinho */
+.container-cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+}
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+}
+.cart-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--navy-primary);
+}
+.subtotal-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--navy-primary);
+    letter-spacing: 0.05em;
+}
+.cart-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+}
+.cart-item-info {
+    display: flex;
+    flex-direction: column;
+}
+.item-title {
+    font-weight: 600;
+    color: #1f2937;
+}
+.item-subtitle {
+    font-size: 0.75rem;
+    color: #9ca3af;
+}
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.qty-badge {
+    display: flex;
+    align-items: center;
+    border: 1px solid #e5e7eb;
+    background-color: #f9fafb;
+    border-radius: 0.25rem;
+    padding: 0.125rem 0.5rem;
+    font-size: 0.75rem;
+}
+.btn-delete {
+    margin-left: 0.5rem;
+    font-size: 0.625rem;
+    cursor: pointer;
+}
+.item-total-price {
+    font-weight: 700;
+    color: var(--navy-primary);
+}
+
+/* Resumo de Fechamento do Carrinho */
+.cart-summary {
+    margin-top: 2rem;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+}
+.row-delivery {
+    font-weight: 700;
+    color: #dc2626; /* Vermelho destacado conforme anotação */
+}
+.checkbox-delivery-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+.checkbox-delivery {
+    border-radius: 0.25rem;
+    width: 1rem;
+    height: 1rem;
+    accent-color: #16a34a; /* Checkbox verde conforme anotação */
+}
+.text-gray-muted {
+    color: #4b5563;
+    font-weight: 600;
+}
+.discount-badge {
+    background-color: #f3f4f6;
+    padding: 0.125rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+}
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 0.75rem;
+    margin-top: 0.25rem;
+}
+.total-label {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--navy-primary);
+}
+.total-amount {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--navy-primary);
+}
+
+/* Footer com Botões de Ação */
+.actions-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.btn-action {
+    padding: 0.625rem 1.5rem;
+    font-weight: 700;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s;
+}
+.btn-cancel {
+    background-color: #EA7A34; /* Laranja do botão Cancelar */
+    color: #ffffff;
+}
+.btn-cancel:hover {
+    background-color: #d96623;
+}
+.btn-save {
+    background-color: var(--blue-save);
+    color: #ffffff;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+.btn-save:hover {
+    background-color: #2592C9;
+}
+
+
+
+
+
+/* ==========================================================================
+   ESTILOS EXCLUSIVOS DA TELA DE HISTÓRICO DE VENDAS
+   ========================================================================== */
+
+/* Barra Superior do Dashboard */
+.top-bar-dashboard {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+/* Ícone do Menu Hamburguer */
+.menu-hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 2rem;
+    height: 1.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.menu-hamburger span {
+    width: 100%;
+    height: 3px;
+    background-color: #111827;
+    border-radius: 2px;
+}
+
+/* Ajuste na barra de busca para ocupar o espaço restante */
+.dashboard-search {
+    flex-grow: 1;
+    margin-bottom: 0 !important;
+}
+
+.header-btn-new {
+    white-space: nowrap;
+    margin-top: 0 !important;
+    height: 2.75rem;
+}
+
+/* Lista e Cards de Venda */
+.sales-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sale-card {
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.15s ease;
+}
+.sale-card:hover {
+    transform: translateY(-2px);
+}
+
+.sale-info {
+    display: flex;
+    flex-direction: column;
+}
+.sale-product-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy-primary);
+}
+.sale-date {
+    font-size: 0.875rem;
+    color: #4b5563;
+    margin-top: 0.125rem;
+}
+
+.sale-meta {
+    display: flex;
+    align-items: center;
+    gap: 3rem; /* Espaço largo entre o preço e o status */
+}
+.sale-price {
+    font-size: 1rem;
+    font-weight: 900;
+    color: var(--navy-primary);
+}
+
+/* Tags de Status (Cores e Bordas idênticas ao Figma) */
+.status-tag {
+    font-size: 0.875rem;
+    font-weight: 700;
+    padding: 0.375rem 1.5rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    min-width: 7.5rem;
+    display: inline-block;
+}
+
+/* Status: Concluída (Verde) */
+.status-success {
+    background-color: #DCFCE7;
+    color: #15803D;
+    border: 1px solid #22C55E;
+}
+
+/* Status: Encomenda (Amarelo/Laranja) */
+.status-warning {
+    background-color: #FEF3C7;
+    color: #B45309;
+    border: 1px solid #F59E0B;
+}
+
+/* Status: Cancelado (Vermelho) */
+.status-danger {
+    background-color: #FEE2E2;
+    color: #B91C1C;
+    border: 1px solid #EF4444;
+}
+
+/* ==========================================================================
+   ESTILOS CORRIGIDOS DA BARRA LATERAL E LAYOUT (TELA VENDAS)
+   ========================================================================== */
+
+/* ==========================================================================
+   ESTILOS CORRIGIDOS DA BARRA LATERAL E LAYOUT (TELA VENDAS)
+   ========================================================================== */
+
+.dashboard-body {
+    background-color: #EAF4FC;
+    display: block !important;     /* 1. Remove o flex centralizador do body global */
+    padding: 0 !important;         /* 2. Remove o padding para a barra lateral colar no canto */
+}
+
+/* Garante que o wrapper ocupe 100% da largura da tela */
+#layout-wrapper {
+    width: 100%;
+}
+
+/* Container Base da Sidebar */
+.sidebar-container {
+    background-color: #C8C8C8; /* Cinza fosco conforme o print */
+    width: 16rem; /* Equivale a w-64 */
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+    /* transition: transform 0.3s ease-in-out; */ /* Movido para o HTML com Tailwind */
+}
+
+/* Estado Recolhido da Sidebar - Agora controlado por classes do Tailwind no HTML */
+
+/* Elementos Internos */
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.profile-box {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+}
+
+.profile-avatar {
+    background-color: #ffffff;
+    border-radius: 9999px;
+    width: 2.25rem;
+    height: 2.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e5e7eb;
+}
+
+.profile-name {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+/* Botões de Toggle (Setinhas) */
+.sidebar-toggle-btn {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 0.375rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #111827;
+    transition: background-color 0.2s;
+}
+.sidebar-toggle-btn:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.open-btn {
+    background-color: #ffffff;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+}
+
+/* Links de Navegação */
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex-grow: 1;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.625rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+    white-space: nowrap;
+    transition: background-color 0.15s;
+}
+.sidebar-link:hover, .sidebar-link.active {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: var(--navy-primary);
+}
+
+.sidebar-divider {
+    border-color: rgba(0, 0, 0, 0.1);
+    margin: 1rem 0;
+}
+
+.sidebar-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+/* Interruptor do Modo Noturno (Switch Component) */
+.darkmode-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 2.5rem;
+    height: 1.25rem;
+}
+.switch input { display: none; }
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #9ca3af;
+    transition: .3s;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 1rem;
+    width: 1rem;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .3s;
+}
+input:checked + .slider { background-color: #22c55e; }
+input:checked + .slider:before { transform: translateX(1.25rem); }
+.slider.round { border-radius: 34px; }
+.slider.round:before { border-radius: 50%; }
+
+/* ==========================================================================
+   CORREÇÃO DO CONTEÚDO PRINCIPAL (TELA VENDAS)
+   ========================================================================== */
+
+/* Removemos a margem negativa e a largura zero da sidebar, e controlamos a transição do main */
+
+.dashboard-search {
+    flex-grow: 1;
+    margin-bottom: 0 !important;
+}
+
+.header-btn-new {
+    white-space: nowrap;
+    margin-top: 0 !important;
+    height: 2.75rem;
+}
+
+/* Lista e Cards de Venda - Centralizados e com max-width */
+.sales-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* Centralização já feita no HTML com max-w e mx-auto */
+}
+
+.sale-card {
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ocupa a largura do contêiner mx-auto */
+    transition: transform 0.15s ease;
+}
+.sale-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Os outros estilos de sale-info, sale-meta, status-tag permanecem os mesmos */
+
