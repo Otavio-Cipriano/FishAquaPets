@@ -527,7 +527,7 @@ body {
 
 /* Container Base da Sidebar */
 .sidebar-container {
-    background-color: #C8C8C8; /* Cinza fosco conforme o print */
+    background-color: #ffffff; /* Cinza fosco conforme o print */
     width: 16rem; /* Equivale a w-64 */
     display: flex;
     flex-direction: column;

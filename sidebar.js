@@ -18,3 +18,32 @@ if (sidebar && mainContent && btnClose && btnOpen) {
         btnOpen.classList.add('hidden');
     });
 }
+
+// ==========================================
+// 2. CONTROLE DO ESTOQUE (Prevenção de Erros)
+// ==========================================
+function toggleRowLock(button) {
+    const row = button.closest('tr');
+    const viewBadge = row.querySelector('.view-badge');
+    const editStepper = row.querySelector('.edit-stepper');
+    const input = editStepper.querySelector('input');
+    
+    if (editStepper.classList.contains('hidden')) {
+        editStepper.classList.remove('hidden');
+        viewBadge.classList.add('hidden');
+        
+        button.innerHTML = '🔓';
+        button.classList.remove('bg-gray-50', 'text-gray-600', 'border-gray-200');
+        button.classList.add('bg-blue-50', 'text-blue-600', 'border-blue-300', 'font-bold');
+    } else {
+        const novoValor = input.value;
+        viewBadge.textContent = `${novoValor} uni.`;
+        
+        editStepper.classList.add('hidden');
+        viewBadge.classList.remove('hidden');
+        
+        button.innerHTML = '🔒';
+        button.classList.remove('bg-blue-50', 'text-blue-600', 'border-blue-300', 'font-bold');
+        button.classList.add('bg-gray-50', 'text-gray-600', 'border-gray-200');
+    }
+}

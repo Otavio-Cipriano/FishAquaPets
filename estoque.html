@@ -17,59 +17,58 @@
         </button>
 
         <aside id="app-sidebar" class="sidebar-container shadow-figma fixed top-0 left-0 h-full z-40 transform translate-x-0 transition-transform duration-300">
-            
-            <div class="sidebar-header">
-                <div class="profile-box">
-                    <div class="profile-avatar">
-                        <img src="imagens/logo.png" alt="Avatar" class="w-full h-full object-cover rounded-full">
-                    </div>
-                    <span class="profile-name">Olá! Jhon Doe.</span>
-                </div>
-                <button id="btn-close-sidebar" class="sidebar-toggle-btn close-btn">
-                    ◀
-                </button>
+    <div class="sidebar-header">
+        <div class="profile-box">
+            <div class="profile-avatar">
+                <img src="imagens/logo.png" alt="Avatar" class="w-full h-full object-cover rounded-full">
             </div>
+            <span class="profile-name">Olá! Jhon Doe.</span>
+        </div>
+        <button id="btn-close-sidebar" class="sidebar-toggle-btn close-btn">
+            ◀
+        </button>
+    </div>
 
-            <div class="sidebar-item darkmode-toggle">
-                <span class="item-text text-gray-700">Modo noturno</span>
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
-            </div>
+    <div class="sidebar-item darkmode-toggle">
+        <span class="item-text text-gray-700">Modo noturno</span>
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+        </label>
+    </div>
 
-            <hr class="sidebar-divider">
+    <hr class="sidebar-divider">
 
-            <nav class="sidebar-nav">
-                <a href="index.html" class="sidebar-link">
-                    <span class="nav-icon">🏠</span>
-                    <span class="item-text">Pagina inicial</span>
-                </a>
-                <a href="estoque.html" class="sidebar-link active">
-                    <span class="nav-icon">📦</span>
-                    <span class="item-text">Estoque</span>
-                </a>
-                <a href="vendas.html" class="sidebar-link">
-                    <span class="nav-icon">💵</span>
-                    <span class="item-text">Vendas</span>
-                </a>
-                <a href="servicos.html" class="sidebar-link">
-                    <span class="nav-icon">🛠️</span>
-                    <span class="item-text">Serviços</span>
-                </a>
-            </nav>
+    <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link">
+            <span class="nav-icon">🏠</span>
+            <span class="item-text">Pagina inicial</span>
+        </a>
+        <a href="estoque.html" class="sidebar-link active">
+            <span class="nav-icon">📦</span>
+            <span class="item-text">Estoque</span>
+        </a>
+        <a href="vendas.html" class="sidebar-link">
+            <span class="nav-icon">💵</span>
+            <span class="item-text">Vendas</span>
+        </a>
+        <a href="servicos.html" class="sidebar-link">
+            <span class="nav-icon">🛠️</span>
+            <span class="item-text">Serviços</span>
+        </a>
+    </nav>
 
-            <div class="sidebar-footer">
-                <a href="https://www.instagram.com/fishaquapets/" target="_blank" class="sidebar-link">
-                    <span class="nav-icon">📸</span>
-                    <span class="item-text">Instagram</span>
-                </a>
-                <a href="central-ajuda.html" class="sidebar-link">
-                    <span class="nav-icon">❓</span>
-                    <span class="item-text">Central de ajuda</span>
-                </a>
-            </div>
-        </aside>
+    <div class="sidebar-footer">
+        <a href="https://www.instagram.com/fishaquapets/" target="_blank" class="sidebar-link">
+            <span class="nav-icon">📸</span>
+            <span class="item-text">Instagram</span>
+        </a>
+        <a href="central-ajuda.html" class="sidebar-link">
+            <span class="nav-icon">❓</span>
+            <span class="item-text">Central de ajuda</span>
+        </a>
+    </div>
+</aside>
 
         <main id="main-content" class="main-content-area flex-1 p-8 ml-64 transition-all duration-300 !w-full !max-w-none">
             
@@ -80,54 +79,130 @@
                 </div>
             </header>
 
-            <div class="flex items-center gap-6 mb-8 w-full !max-w-[1400px] mx-auto">
-                <div class="search-container flex-grow relative mb-0 dashboard-search !w-full">
-                    <span class="search-icon">🔍</span>
-                    <input type="text" placeholder="Pesquisar item no estoque" class="search-input !w-full">
-                    <span class="filter-icon">⏳</span>
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-6 w-full !max-w-[1400px] mx-auto">
+                <div class="flex items-center gap-3 w-full md:w-auto flex-grow max-w-2xl justify-start">
+                    <div class="search-container flex-grow relative mb-0 dashboard-search !w-full">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" placeholder="Buscar produto..." class="search-input !w-full">
+                        <span class="filter-icon">⏳</span>
+                    </div>
+                    <button class="px-4 py-2.5 bg-white border border-gray-200 text-gray-700 text-sm font-semibold rounded-xl shadow-sm hover:bg-gray-50 transition-colors whitespace-nowrap">
+                        🔍 Busca avançada
+                    </button>
                 </div>
-                <a href="#" class="btn-action btn-save flex items-center justify-center text-center header-btn-new whitespace-nowrap">
-                    Novo item
-                </a>
+
+                <div class="flex items-center gap-3 w-full md:w-auto justify-end">
+                    <a href="#" class="btn-action btn-save flex items-center justify-center text-center header-btn-new whitespace-nowrap !mb-0">
+                        ➕ Adicionar
+                    </a>
+                    <button class="px-4 py-2.5 bg-white border border-gray-200 text-gray-700 text-sm font-semibold rounded-xl shadow-sm hover:bg-gray-50 transition-colors flex items-center gap-2">
+                        ⚙️ Mais ações <span class="text-xs text-gray-400">▼</span>
+                    </button>
+                </div>
             </div>
 
-            <div class="sales-list w-full !max-w-[1400px] mx-auto flex flex-col gap-4">
-                
-                <div class="sale-card shadow-figma !w-full">
-                    <div class="sale-info">
-                        <span class="sale-product-title">Ração</span>
-                    </div>
-                    <div class="sale-meta">
-                        <span class="sale-price">R$: 67,67</span>
-                        <span class="status-tag status-success">67 uni.</span>
-                    </div>
-                </div>
+            <div class="w-full !max-w-[1400px] mx-auto bg-white rounded-2xl shadow-figma border border-gray-100 overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-50/75 border-b border-gray-100">
+                                <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500">Código</th>
+                                <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500">Nome</th>
+                                <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500">Preço</th>
+                                <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500 w-[180px]">Estoque</th>
+                                <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500 text-center w-[100px]">Destravar</th>
+                                <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500 text-center w-[150px]">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                            
+                            <tr class="hover:bg-blue-50/20 transition-colors">
+                                <td class="px-6 py-4 text-sm font-mono text-gray-500">2044011298108</td>
+                                <td class="px-6 py-4 text-sm font-semibold text-gray-800">Ração de Peixe Alcon</td>
+                                <td class="px-6 py-4 text-sm font-bold text-gray-700">R$ 67,67</td>
+                                <td class="px-6 py-4 text-sm stock-cell">
+                                    <span class="view-badge status-tag status-success inline-block">67 uni.</span>
+                                    
+                                    <div class="edit-stepper hidden flex items-center w-max border border-blue-400 rounded-xl bg-white overflow-hidden shadow-sm">
+                                        <button class="w-8 h-8 flex items-center justify-center text-gray-500 hover:bg-gray-100 font-extrabold select-none" onclick="this.parentNode.querySelector('input').stepDown()">−</button>
+                                        <input type="number" value="67" class="w-12 h-8 text-center text-sm font-bold text-gray-800 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
+                                        <button class="w-8 h-8 flex items-center justify-center text-gray-500 hover:bg-gray-100 font-extrabold select-none" onclick="this.parentNode.querySelector('input').stepUp()">+</button>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-center">
+                                    <button class="btn-lock p-2 bg-gray-50 hover:bg-gray-100 text-gray-600 rounded-xl border border-gray-200 transition-all shadow-sm active:scale-95" onclick="toggleRowLock(this)">
+                                        🔒
+                                    </button>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-center">
+                                    <div class="flex items-center justify-center gap-2">
+                                        <button title="Visualizar" class="p-1.5 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors">👁️</button>
+                                        <button title="Editar" class="p-1.5 bg-amber-50 text-amber-600 rounded-lg hover:bg-amber-100 transition-colors">✏️</button>
+                                        <button title="Excluir" class="p-1.5 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors">❌</button>
+                                    </div>
+                                </td>
+                            </tr>
 
-                <div class="sale-card shadow-figma !w-full">
-                    <div class="sale-info">
-                        <span class="sale-product-title">Ração 2</span>
-                    </div>
-                    <div class="sale-meta">
-                        <span class="sale-price">R$: 80,30</span>
-                        <span class="status-tag status-warning">24 uni.</span>
-                    </div>
-                </div>
+                            <tr class="hover:bg-blue-50/20 transition-colors">
+                                <td class="px-6 py-4 text-sm font-mono text-gray-500">2002246780607</td>
+                                <td class="px-6 py-4 text-sm font-semibold text-gray-800">Ração Gato Adulto Premium</td>
+                                <td class="px-6 py-4 text-sm font-bold text-gray-700">R$ 80,30</td>
+                                <td class="px-6 py-4 text-sm stock-cell">
+                                    <span class="view-badge status-tag status-warning inline-block">24 uni.</span>
+                                    <div class="edit-stepper hidden flex items-center w-max border border-blue-400 rounded-xl bg-white overflow-hidden shadow-sm">
+                                        <button class="w-8 h-8 flex items-center justify-center text-gray-500 hover:bg-gray-100 font-extrabold select-none" onclick="this.parentNode.querySelector('input').stepDown()">−</button>
+                                        <input type="number" value="24" class="w-12 h-8 text-center text-sm font-bold text-gray-800 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
+                                        <button class="w-8 h-8 flex items-center justify-center text-gray-500 hover:bg-gray-100 font-extrabold select-none" onclick="this.parentNode.querySelector('input').stepUp()">+</button>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-center">
+                                    <button class="btn-lock p-2 bg-gray-50 hover:bg-gray-100 text-gray-600 rounded-xl border border-gray-200 transition-all shadow-sm active:scale-95" onclick="toggleRowLock(this)">
+                                        🔒
+                                    </button>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-center">
+                                    <div class="flex items-center justify-center gap-2">
+                                        <button title="Visualizar" class="p-1.5 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors">👁️</button>
+                                        <button title="Editar" class="p-1.5 bg-amber-50 text-amber-600 rounded-lg hover:bg-amber-100 transition-colors">✏️</button>
+                                        <button title="Excluir" class="p-1.5 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors">❌</button>
+                                    </div>
+                                </td>
+                            </tr>
 
-                <div class="sale-card shadow-figma !w-full">
-                    <div class="sale-info">
-                        <span class="sale-product-title">Filtro hang-on</span>
-                    </div>
-                    <div class="sale-meta">
-                        <span class="sale-price">R$: 36,50</span>
-                        <span class="status-tag status-danger">12 uni.</span>
-                    </div>
-                </div>
+                            <tr class="hover:bg-blue-50/20 transition-colors">
+                                <td class="px-6 py-4 text-sm font-mono text-gray-500">2084148123101</td>
+                                <td class="px-6 py-4 text-sm font-semibold text-gray-800">Filtro Hang-On HF-400</td>
+                                <td class="px-6 py-4 text-sm font-bold text-gray-700">R$ 36,50</td>
+                                <td class="px-6 py-4 text-sm stock-cell">
+                                    <span class="view-badge status-tag status-danger inline-block">12 uni.</span>
+                                    <div class="edit-stepper hidden flex items-center w-max border border-blue-400 rounded-xl bg-white overflow-hidden shadow-sm">
+                                        <button class="w-8 h-8 flex items-center justify-center text-gray-500 hover:bg-gray-100 font-extrabold select-none" onclick="this.parentNode.querySelector('input').stepDown()">−</button>
+                                        <input type="number" value="12" class="w-12 h-8 text-center text-sm font-bold text-gray-800 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
+                                        <button class="w-8 h-8 flex items-center justify-center text-gray-500 hover:bg-gray-100 font-extrabold select-none" onclick="this.parentNode.querySelector('input').stepUp()">+</button>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-center">
+                                    <button class="btn-lock p-2 bg-gray-50 hover:bg-gray-100 text-gray-600 rounded-xl border border-gray-200 transition-all shadow-sm active:scale-95" onclick="toggleRowLock(this)">
+                                        🔒
+                                    </button>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-center">
+                                    <div class="flex items-center justify-center gap-2">
+                                        <button title="Visualizar" class="p-1.5 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors">👁️</button>
+                                        <button title="Editar" class="p-1.5 bg-amber-50 text-amber-600 rounded-lg hover:bg-amber-100 transition-colors">✏️</button>
+                                        <button title="Excluir" class="p-1.5 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors">❌</button>
+                                    </div>
+                                </td>
+                            </tr>
 
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
         </main>
     </div>
 
-<script src="sidebar.js"></script>
+    <script src="sidebar.js"></script>
 </body>
 </html>
