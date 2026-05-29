@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FishAqua Pets - Visualizar Produto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body overflow-x-hidden">
+
+    <div id="layout-wrapper" class="flex min-h-screen">
+
+        <button id="btn-open-sidebar" class="sidebar-toggle-btn open-btn fixed top-6 left-6 hidden shadow-figma z-50">
+            ▶
+        </button>
+
+        <aside id="app-sidebar" class="sidebar-container shadow-figma fixed top-0 left-0 h-full z-40 transform translate-x-0 transition-transform duration-300">
+            <div class="sidebar-header">
+                <div class="profile-box">
+                    <div class="profile-avatar">
+                        <img src="imagens/logo.png" alt="Avatar" class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <span class="profile-name">Olá! Jhon Doe.</span>
+                </div>
+                <button id="btn-close-sidebar" class="sidebar-toggle-btn close-btn">
+                    ◀
+                </button>
+            </div>
+
+            <div class="sidebar-item darkmode-toggle">
+                <span class="item-text text-gray-700">Modo noturno</span>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <hr class="sidebar-divider">
+
+            <nav class="sidebar-nav">
+                <a href="index.html" class="sidebar-link">
+                    <span class="nav-icon">🏠</span>
+                    <span class="item-text">Pagina inicial</span>
+                </a>
+                <a href="estoque.html" class="sidebar-link active">
+                    <span class="nav-icon">📦</span>
+                    <span class="item-text">Estoque</span>
+                </a>
+                <a href="vendas.html" class="sidebar-link">
+                    <span class="nav-icon">💵</span>
+                    <span class="item-text">Vendas</span>
+                </a>
+                <a href="servicos.html" class="sidebar-link">
+                    <span class="nav-icon">🛠️</span>
+                    <span class="item-text">Serviços</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="https://www.instagram.com/fishaquapets/" target="_blank" class="sidebar-link">
+                    <span class="nav-icon">📸</span>
+                    <span class="item-text">Instagram</span>
+                </a>
+                <a href="central-ajuda.html" class="sidebar-link">
+                    <span class="nav-icon">❓</span>
+                    <span class="item-text">Central de ajuda</span>
+                </a>
+            </div>
+        </aside>
+
+        <main id="main-content" class="main-content-area flex-1 p-8 ml-64 transition-all duration-300 !w-full !max-w-none">
+            
+            <header class="w-full max-w-[1400px] mx-auto mb-6">
+                <div class="flex items-center justify-between flex-wrap gap-4 mb-2">
+                    <div class="flex items-center gap-4">
+                        <img src="imagens/logo.png" alt="Logo FishAqua Pets" class="w-12 h-12 object-cover rounded-full shadow-sm">
+                        <div class="flex flex-col">
+                            <span class="text-2xl font-black text-[var(--navy-primary)] tracking-wide leading-none">FISH AQUA PETS 🦴</span>
+                        </div>
+                    </div>
+                    <a href="estoque.html" class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-semibold rounded-xl shadow-sm hover:bg-gray-50 transition-all flex items-center gap-2">
+                        ⬅️ Voltar ao Estoque
+                    </a>
+                </div>
+                <nav class="text-xs text-gray-400 font-medium mt-3">
+                    Estoque &nbsp;•&nbsp; Produtos &nbsp;•&nbsp; <span class="text-gray-600 font-semibold">Visualizar Detalhes</span>
+                </nav>
+            </header>
+
+            <div class="w-full max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+                
+                <section class="lg:col-span-3 bg-white rounded-2xl shadow-figma border border-gray-100 p-6">
+                    <div class="flex items-center justify-between border-b border-gray-100 pb-4 mb-6">
+                        <h2 class="text-xs font-bold uppercase tracking-wider text-gray-400 flex items-center gap-2">
+                            📋 Detalhes do Produto
+                        </h2>
+                        <span class="text-xs font-semibold text-gray-400">Status no Sistema</span>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-8 bg-gray-50/50 p-4 rounded-xl border border-gray-100">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 bg-white border border-gray-200 rounded-xl flex items-center justify-center text-2xl shadow-sm overflow-hidden">
+                                📦
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <h1 id="prod-nome" class="text-xl font-bold text-gray-800">Carregando...</h1>
+                                    <span class="px-2.5 py-0.5 bg-green-50 text-green-600 text-xs font-bold rounded-full border border-green-200">Ativo</span>
+                                </div>
+                                <p class="text-xs text-gray-400 mt-1 font-mono">SKU: <span id="prod-sku">---</span></p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-6 flex-wrap bg-white p-3 rounded-xl border border-gray-100 shadow-sm">
+                            <label class="flex items-center gap-2 text-xs font-semibold text-gray-600 cursor-not-allowed">
+                                <input type="checkbox" checked disabled class="accent-green-500 w-4 h-4 rounded"> Controlar Estoque
+                            </label>
+                            <label class="flex items-center gap-2 text-xs font-semibold text-gray-600 cursor-not-allowed">
+                                <input type="checkbox" checked disabled class="accent-green-500 w-4 h-4 rounded"> Visível no PDV
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <div>
+                            <span class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Identificação</span>
+                            <span class="text-sm font-semibold text-gray-700">Ficha Geral</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Categoria</span>
+                            <span id="prod-categoria" class="text-sm font-semibold text-gray-700">---</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Unidade de Medida</span>
+                            <span class="text-sm font-semibold text-gray-700">Unidade (uni.)</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Preço de Venda</span>
+                            <span id="prod-preco" class="text-sm font-bold text-[var(--navy-primary)]">R$ 0,00</span>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="lg:col-span-1 flex flex-col gap-6">
+                    <div class="bg-white rounded-2xl shadow-figma border border-gray-100 p-6">
+                        <span class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Visão Geral do Estoque</span>
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span id="prod-estoque-qtd" class="text-3xl font-black text-gray-800">0</span>
+                            <span class="text-sm font-semibold text-gray-500">unidades disponíveis</span>
+                        </div>
+                        <div class="w-full h-2.5 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-blue-500 rounded-full" style="width: 100%"></div>
+                        </div>
+                        <div class="flex justify-between items-center mt-3 text-xs text-gray-400 font-medium">
+                            <span>Balanço de Inventário</span>
+                            <span class="text-blue-600 font-semibold">Atualizado</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-figma border border-gray-100 p-6">
+                        <span class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Dados de Operação</span>
+                        <div class="space-y-3">
+                            <div class="flex justify-between border-b border-gray-50 pb-2">
+                                <span class="text-xs text-gray-500 font-medium">Margem Operacional:</span>
+                                <span class="text-xs font-bold text-green-600">Calculada via ERP</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-50 pb-2">
+                                <span class="text-xs text-gray-500 font-medium">Tipo de Item:</span>
+                                <span class="text-xs font-bold text-gray-700">Mercadoria para Revenda</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="lg:col-span-2 bg-white rounded-2xl shadow-figma border border-gray-100 p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-4 border-b border-gray-100 pb-3 mb-5">
+                            <button class="text-sm font-bold text-blue-600 border-b-2 border-blue-600 pb-3 -mb-[14px]">
+                                Descrição Geral
+                            </button>
+                        </div>
+
+                        <div id="prod-descricao" class="prose prose-sm max-w-none text-gray-600 leading-relaxed space-y-4">
+                            </div>
+                    </div>
+
+                    <div class="mt-8 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-400 font-medium">
+                        <span>Ficha Técnica Dinâmica</span>
+                        <a href="estoque.html" class="text-blue-500 hover:underline flex items-center gap-1 font-semibold">
+                            Voltar para listagem
+                        </a>
+                    </div>
+                </section>
+
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+    // 1. Nosso "Banco de Dados" simulado no Front-end (Mock Data)
+    const produtosBD = {
+        "2044011298108": {
+            nome: "Ração de Peixe Alcon",
+            preco: "R$ 67,67",
+            estoque: "67",
+            categoria: "Aquarismo / Alimentos",
+            descricao: `<p class="font-medium text-gray-800">Alimento completo em flocos, indicado para todas as espécies de peixes tropicais de estimação.</p>
+                        <blockquote class="bg-blue-50/50 border-l-4 border-blue-500 p-3 rounded-r-xl text-xs text-gray-600 font-medium">
+                            💡 <strong>Recomendação de Alimentação:</strong> Oferecer de 2 a 3 vezes ao dia em quantidade suficiente para ser consumida em até 5 minutos.
+                        </blockquote>
+                        <p class="text-xs text-gray-500">Contém prebióticos para melhor digestibilidade e vitamina C protegida.</p>`
+        },
+        "2002246780607": {
+            nome: "Ração Gato Adulto Premium",
+            preco: "R$ 80,30",
+            estoque: "24",
+            categoria: "Felinos / Alimentos",
+            descricao: `<p class="font-medium text-gray-800">Ração premium com alta absorção de nutrientes para gatos castrados ou de ambientes internos.</p>
+                        <blockquote class="bg-amber-50/50 border-l-4 border-amber-500 p-3 rounded-r-xl text-xs text-gray-600 font-medium">
+                            🐱 <strong>Benefício:</strong> Controle de bolas de pelo e auxílio na saúde do trato urinário.
+                        </blockquote>`
+        },
+        "2084148123101": {
+            nome: "Filtro Hang-On HF-400",
+            preco: "R$ 36,50",
+            estoque: "12",
+            categoria: "Aquarismo / Equipamentos",
+            descricao: `<p class="font-medium text-gray-800">Filtro externo tipo Hang-On ideal para aquários de 40 a 80 litros.</p>
+                        <p class="text-xs text-gray-500">Realiza filtragem mecânica, química e biológica. Silencioso e de fácil manutenção.</p>`
+        }
+    };
+
+    // 2. Capturar o ID que veio na URL (ex: ?id=2044011298108)
+    const urlParams = new URLSearchParams(window.location.search);
+    const produtoId = urlParams.get('id');
+
+    // 3. Buscar os dados do produto com base no ID e injetar na tela
+    if (produtoId && produtosBD[produtoId]) {
+        const produtoInfo = produtosBD[produtoId];
+
+        document.getElementById('prod-nome').innerText = produtoInfo.nome;
+        document.getElementById('prod-sku').innerText = produtoId;
+        document.getElementById('prod-categoria').innerText = produtoInfo.categoria;
+        document.getElementById('prod-preco').innerText = produtoInfo.preco;
+        document.getElementById('prod-estoque-qtd').innerText = produtoInfo.estoque;
+        document.getElementById('prod-descricao').innerHTML = produtoInfo.descricao;
+    } else {
+        // Caso não encontre o ID ou acesse a página direto
+        document.getElementById('prod-nome').innerText = "Produto não localizado";
+        document.getElementById('prod-descricao').innerHTML = "<p class='text-red-500 font-semibold'>Erro: Nenhum produto válido selecionado no estoque.</p>";
+    }
+    </script>
+
+    <!-- Script compartilhado da Sidebar -->
+    <script src="sidebar.js"></script>
+</body>
+</html>
