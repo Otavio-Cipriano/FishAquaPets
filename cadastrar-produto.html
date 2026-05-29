@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FishAqua Pets - Cadastrar Produto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body overflow-x-hidden">
+
+    <div id="layout-wrapper" class="flex min-h-screen">
+
+        <aside id="app-sidebar" class="sidebar-container shadow-figma fixed top-0 left-0 h-full z-40 transform translate-x-0 transition-transform duration-300">
+            <div class="sidebar-header">
+                <div class="profile-box">
+                    <div class="profile-avatar">
+                        <img src="imagens/logo.png" alt="Avatar" class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <span class="profile-name">Olá! Jhon Doe.</span>
+                </div>
+                <button id="btn-close-sidebar" class="sidebar-toggle-btn close-btn">
+                    ◀
+                </button>
+            </div>
+
+            <div class="sidebar-item darkmode-toggle">
+                <span class="item-text text-gray-700">Modo noturno</span>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <hr class="sidebar-divider">
+
+            <nav class="sidebar-nav">
+                <a href="index.html" class="sidebar-link">
+                    <span class="nav-icon">🏠</span>
+                    <span class="item-text">Pagina inicial</span>
+                </a>
+                <a href="estoque.html" class="sidebar-link active">
+                    <span class="nav-icon">📦</span>
+                    <span class="item-text">Estoque</span>
+                </a>
+                <a href="vendas.html" class="sidebar-link">
+                    <span class="nav-icon">💵</span>
+                    <span class="item-text">Vendas</span>
+                </a>
+                <a href="servicos.html" class="sidebar-link">
+                    <span class="nav-icon">🛠️</span>
+                    <span class="item-text">Serviços</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="https://www.instagram.com/fishaquapets/" target="_blank" class="sidebar-link">
+                    <span class="nav-icon">📸</span>
+                    <span class="item-text">Instagram</span>
+                </a>
+                <a href="central-ajuda.html" class="sidebar-link">
+                    <span class="nav-icon">❓</span>
+                    <span class="item-text">Central de ajuda</span>
+                </a>
+            </div>
+        </aside>
+
+        <main id="main-content" class="main-content-area flex-1 p-8 ml-64 transition-all duration-300 !w-full !max-w-none">
+            
+            <header class="w-full max-w-[1400px] mx-auto mb-8">
+                <div class="flex items-center justify-between flex-wrap gap-4">
+                    <div class="flex items-center gap-4">
+                        <img src="imagens/logo.png" alt="Logo FishAqua Pets" class="w-12 h-12 object-cover rounded-full shadow-sm">
+                        <div class="flex flex-col">
+                            <span class="text-2xl font-black text-[var(--navy-primary)] tracking-wide leading-none">FISH AQUA PETS 🦴</span>
+                            <nav class="text-xs text-gray-400 font-medium mt-2">
+                                Estoque &nbsp;•&nbsp; Produtos &nbsp;•&nbsp; <span class="text-gray-600 font-semibold">Novo Cadastro</span>
+                            </nav>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-3">
+                        <a href="estoque.html" class="px-6 py-2.5 bg-white border border-gray-200 text-gray-500 text-sm font-bold rounded-xl hover:bg-gray-50 transition-all">
+                            Cancelar
+                        </a>
+                        <button type="submit" form="form-produto" class="px-6 py-2.5 bg-blue-600 text-white text-sm font-bold rounded-xl shadow-lg shadow-blue-200 hover:bg-blue-700 transition-all">
+                            💾 Salvar Produto
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+<form id="form-produto" onsubmit="event.preventDefault(); window.location.href='estoque.html';" class="w-full max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">                
+                <div class="lg:col-span-2 space-y-8">
+                    
+                    <section class="bg-white rounded-2xl shadow-figma border border-gray-100 p-8">
+                        <h2 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-6 flex items-center gap-2">
+                            🏷️ Identificação Básica
+                        </h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="md:col-span-2">
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Nome do Produto *</label>
+                                <input type="text" placeholder="Ex: Ração de Peixe Alcon 50g" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm font-medium">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Código de Barras (SKU) *</label>
+                                <input type="text" placeholder="0000000000000" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm font-mono font-medium">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Categoria</label>
+                                <select class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm font-medium appearance-none bg-no-repeat bg-[right_1rem_center]">
+                                    <option>Selecione uma categoria</option>
+                                    <option>Aquarismo</option>
+                                    <option>Cães</option>
+                                    <option>Gatos</option>
+                                    <option>Aves</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="bg-white rounded-2xl shadow-figma border border-gray-100 p-8">
+                        <h2 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-6 flex items-center gap-2">
+                            💰 Preços e Medidas
+                        </h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Preço de Venda (R$)</label>
+                                <input type="text" placeholder="0,00" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm font-bold text-blue-600">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Preço de Custo (R$)</label>
+                                <input type="text" placeholder="0,00" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm font-bold text-gray-600">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Unidade</label>
+                                <select class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm font-medium">
+                                    <option>Unidade (uni.)</option>
+                                    <option>Gramas (g)</option>
+                                    <option>Quilos (kg)</option>
+                                    <option>Litros (l)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="bg-white rounded-2xl shadow-figma border border-gray-100 p-8">
+                        <h2 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-6 flex items-center gap-2">
+                            📝 Descrição Geral / Ficha Técnica
+                        </h2>
+                        <textarea placeholder="Descreva aqui as características do produto, modo de uso e informações técnicas importantes para o cliente..." class="w-full h-48 px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm font-medium resize-none"></textarea>
+                        <p class="text-[10px] text-gray-400 mt-2">Esse conteúdo será exibido na aba de detalhes ao visualizar o produto.</p>
+                    </section>
+                </div>
+
+                <div class="lg:col-span-1 space-y-8">
+                    
+                    <section class="bg-white rounded-2xl shadow-figma border border-gray-100 p-8">
+                        <label class="block text-xs font-bold text-gray-500 uppercase mb-4">Status no Sistema</label>
+                        <div class="flex items-center gap-3 p-3 bg-green-50 rounded-xl border border-green-100">
+                            <input type="checkbox" checked class="w-5 h-5 accent-green-600">
+                            <span class="text-sm font-bold text-green-700">Produto Ativo</span>
+                        </div>
+                    </section>
+
+                    <section class="bg-white rounded-2xl shadow-figma border border-gray-100 p-8">
+                        <h2 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-6">📦 Controle de Estoque</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Quantidade Inicial</label>
+                                <input type="number" value="0" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm font-bold text-gray-800">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Estoque Mínimo Ideal</label>
+                                <input type="number" value="5" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm font-bold text-gray-800">
+                            </div>
+                        </div>
+
+                        <div class="mt-8 space-y-4 pt-6 border-t border-gray-50">
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input type="checkbox" checked class="w-4 h-4 accent-blue-600">
+                                <span class="text-xs font-semibold text-gray-600 group-hover:text-gray-800 transition-colors">Abater estoque em vendas</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input type="checkbox" checked class="w-4 h-4 accent-blue-600">
+                                <span class="text-xs font-semibold text-gray-600 group-hover:text-gray-800 transition-colors">Exibir no PDV</span>
+                            </label>
+                        </div>
+                    </section>
+
+                    <div class="p-6 bg-blue-600 rounded-2xl shadow-xl shadow-blue-100">
+                        <div class="text-white text-xl mb-2">💡</div>
+                        <p class="text-blue-50 text-xs leading-relaxed font-medium">
+                            Dica: Preencha o <strong>Código de Barras</strong> corretamente para facilitar a busca rápida usando o leitor no momento da venda.
+                        </p>
+                    </div>
+
+                </div>
+
+            </form>
+
+        </main>
+    </div>
+
+    <script src="sidebar.js"></script>
+</body>
+</html>

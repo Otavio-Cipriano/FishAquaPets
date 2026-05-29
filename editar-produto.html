@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FishAqua Pets - Editar Produto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body overflow-x-hidden">
+
+    <div id="layout-wrapper" class="flex min-h-screen">
+
+        <aside id="app-sidebar" class="sidebar-container shadow-figma fixed top-0 left-0 h-full z-40 transform translate-x-0 transition-transform duration-300">
+            <div class="sidebar-header">
+                <div class="profile-box">
+                    <div class="profile-avatar">
+                        <img src="imagens/logo.png" alt="Avatar" class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <span class="profile-name">Olá! Jhon Doe.</span>
+                </div>
+                <button id="btn-close-sidebar" class="sidebar-toggle-btn close-btn">◀</button>
+            </div>
+
+            <div class="sidebar-item darkmode-toggle">
+                <span class="item-text text-gray-700">Modo noturno</span>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <hr class="sidebar-divider">
+
+            <nav class="sidebar-nav">
+                <a href="index.html" class="sidebar-link">
+                    <span class="nav-icon">🏠</span>
+                    <span class="item-text">Pagina inicial</span>
+                </a>
+                <a href="estoque.html" class="sidebar-link active">
+                    <span class="nav-icon">📦</span>
+                    <span class="item-text">Estoque</span>
+                </a>
+                <a href="vendas.html" class="sidebar-link">
+                    <span class="nav-icon">💵</span>
+                    <span class="item-text">Vendas</span>
+                </a>
+                <a href="servicos.html" class="sidebar-link">
+                    <span class="nav-icon">🛠️</span>
+                    <span class="item-text">Serviços</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="https://www.instagram.com/fishaquapets/" target="_blank" class="sidebar-link">
+                    <span class="nav-icon">📸</span>
+                    <span class="item-text">Instagram</span>
+                </a>
+                <a href="central-ajuda.html" class="sidebar-link">
+                    <span class="nav-icon">❓</span>
+                    <span class="item-text">Central de ajuda</span>
+                </a>
+            </div>
+        </aside>
+
+        <main id="main-content" class="main-content-area flex-1 p-8 ml-64 transition-all duration-300 !w-full !max-w-none">
+            
+            <header class="w-full max-w-[1400px] mx-auto mb-8">
+                <div class="flex items-center justify-between flex-wrap gap-4">
+                    <div class="flex items-center gap-4">
+                        <img src="imagens/logo.png" alt="Logo FishAqua Pets" class="w-12 h-12 object-cover rounded-full shadow-sm">
+                        <div class="flex flex-col">
+                            <span class="text-2xl font-black text-[var(--navy-primary)] tracking-wide leading-none">FISH AQUA PETS 🦴</span>
+                            <nav class="text-xs text-gray-400 font-medium mt-2">
+                                Estoque &nbsp;•&nbsp; Produtos &nbsp;•&nbsp; <span class="text-gray-600 font-semibold">Editar Cadastro</span>
+                            </nav>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-3">
+                        <a href="estoque.html" class="px-6 py-2.5 bg-white border border-gray-200 text-gray-500 text-sm font-bold rounded-xl hover:bg-gray-50 transition-all">
+                            Cancelar
+                        </a>
+                        <button type="submit" form="form-editar-produto" class="px-6 py-2.5 bg-amber-500 text-white text-sm font-bold rounded-xl shadow-lg shadow-amber-100 hover:bg-amber-600 transition-all">
+                            🔄 Atualizar Produto
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <form id="form-editar-produto" onsubmit="event.preventDefault(); window.location.href='estoque.html';" class="w-full max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <div class="lg:col-span-2 space-y-8">
+                    
+                    <section class="bg-white rounded-2xl shadow-figma border border-gray-100 p-8">
+                        <h2 class="text-xs font-bold uppercase tracking-wider text-amber-500 mb-6 flex items-center gap-2">
+                            ✏️ Alterar Identificação Básica
+                        </h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="md:col-span-2">
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Nome do Produto *</label>
+                                <input type="text" id="edit-nome" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-100 outline-none transition-all text-sm font-medium">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Código de Barras (SKU)</label>
+                                <input type="text" id="edit-sku" readonly class="w-full px-4 py-3 rounded-xl border border-gray-100 bg-gray-100 text-gray-500 outline-none cursor-not-allowed text-sm font-mono font-medium">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Categoria</label>
+                                <select id="edit-categoria" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-100 outline-none transition-all text-sm font-medium">
+                                    <option value="Aquarismo / Alimentos">Aquarismo / Alimentos</option>
+                                    <option value="Felinos / Alimentos">Felinos / Alimentos</option>
+                                    <option value="Aquarismo / Equipamentos">Aquarismo / Equipamentos</option>
+                                    <option value="Cães / Alimentos">Cães / Alimentos</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="bg-white rounded-2xl shadow-figma border border-gray-100 p-8">
+                        <h2 class="text-xs font-bold uppercase tracking-wider text-amber-500 mb-6 flex items-center gap-2">
+                            💰 Preços e Medidas
+                        </h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Preço de Venda</label>
+                                <input type="text" id="edit-preco" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-100 outline-none transition-all text-sm font-bold text-amber-600">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Preço de Custo (Simulado)</label>
+                                <input type="text" value="R$ 0,00" class="w-full px-4 py-3 rounded-xl border border-gray-100 bg-gray-50 text-gray-400 outline-none text-sm font-medium">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Unidade</label>
+                                <select class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-100 outline-none transition-all text-sm font-medium">
+                                    <option>Unidade (uni.)</option>
+                                    <option>Gramas (g)</option>
+                                    <option>Quilos (kg)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="bg-white rounded-2xl shadow-figma border border-gray-100 p-8">
+                        <h2 class="text-xs font-bold uppercase tracking-wider text-amber-500 mb-6 flex items-center gap-2">
+                            📝 Editar Ficha Técnica (HTML/Texto)
+                        </h2>
+                        <textarea id="edit-descricao" class="w-full h-48 px-4 py-3 rounded-xl border border-gray-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-100 outline-none transition-all text-sm font-medium resize-none font-mono"></textarea>
+                    </section>
+                </div>
+
+                <div class="lg:col-span-1 space-y-8">
+                    <section class="bg-white rounded-2xl shadow-figma border border-gray-100 p-8">
+                        <label class="block text-xs font-bold text-gray-500 uppercase mb-4">Status Operacional</label>
+                        <div class="flex items-center gap-3 p-3 bg-green-50 rounded-xl border border-green-100">
+                            <input type="checkbox" checked class="w-5 h-5 accent-green-600">
+                            <span class="text-sm font-bold text-green-700">Produto Ativo</span>
+                        </div>
+                    </section>
+
+                    <section class="bg-white rounded-2xl shadow-figma border border-gray-100 p-8">
+                        <h2 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-6">📦 Nível de Estoque</h2>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Quantidade Atual</label>
+                            <input type="number" id="edit-estoque" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-100 outline-none transition-all text-sm font-bold text-gray-800">
+                        </div>
+                    </section>
+                </div>
+
+            </form>
+        </main>
+    </div>
+
+    <script>
+        // 1. Nosso Banco de Dados simulado idêntico ao da tela de visualizar
+        const produtosBD = {
+            "2044011298108": {
+                nome: "Ração de Peixe Alcon",
+                preco: "R$ 67,67",
+                estoque: "67",
+                categoria: "Aquarismo / Alimentos",
+                descricao: `Alimento completo em flocos, indicado para todas as espécies de peixes tropicais de estimação.`
+            },
+            "2002246780607": {
+                nome: "Ração Gato Adulto Premium",
+                preco: "R$ 80,30",
+                estoque: "24",
+                categoria: "Felinos / Alimentos",
+                descricao: `Ração premium com alta absorção de nutrientes para gatos castrados ou de ambientes internos.`
+            },
+            "2084148123101": {
+                nome: "Filtro Hang-On HF-400",
+                preco: "R$ 36,50",
+                estoque: "12",
+                categoria: "Aquarismo / Equipamentos",
+                descricao: `Filtro externo tipo Hang-On ideal para aquários de 40 a 80 litros.`
+            }
+        };
+
+        // 2. Capturar o ID passado pela URL (?id=xxxx)
+        const urlParams = new URLSearchParams(window.location.search);
+        const produtoId = urlParams.get('id');
+
+        // 3. Se encontrar o produto no banco, injeta os valores dentro dos inputs (.value)
+        if (produtoId && produtosBD[produtoId]) {
+            const produto = produtosBD[produtoId];
+
+            document.getElementById('edit-nome').value = produto.nome;
+            document.getElementById('edit-sku').value = produtoId;
+            document.getElementById('edit-categoria').value = produto.categoria;
+            document.getElementById('edit-preco').value = produto.preco;
+            document.getElementById('edit-estoque').value = produto.estoque;
+            document.getElementById('edit-descricao').value = produto.descricao;
+        } else {
+            alert("Erro: Produto não encontrado para edição.");
+            window.location.href = 'estoque.html';
+        }
+    </script>
+
+    <script src="sidebar.js"></script>
+</body>
+</html>
