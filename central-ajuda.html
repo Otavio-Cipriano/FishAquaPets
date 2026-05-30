@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FishAqua Pets - Central de Ajuda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body overflow-x-hidden">
+
+    <div id="layout-wrapper" class="flex min-h-screen">
+
+        <button id="btn-open-sidebar" class="sidebar-toggle-btn open-btn fixed top-6 left-6 hidden shadow-figma z-50">
+            ▶
+        </button>
+
+        <aside id="app-sidebar" class="sidebar-container shadow-figma fixed top-0 left-0 h-full z-40 transform translate-x-0 transition-transform duration-300">
+            <div class="sidebar-header">
+                <div class="profile-box">
+                    <div class="profile-avatar">
+                        <img src="imagens/logo.png" alt="Avatar" class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <span class="profile-name">Olá! Jhon Doe.</span>
+                </div>
+                <button id="btn-close-sidebar" class="sidebar-toggle-btn close-btn">◀</button>
+            </div>
+
+            <div class="sidebar-item darkmode-toggle">
+                <span class="item-text text-gray-700">Modo noturno</span>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <hr class="sidebar-divider">
+
+            <nav class="sidebar-nav">
+                <a href="index.html" class="sidebar-link">
+                    <span class="nav-icon">🏠</span>
+                    <span class="item-text">Pagina inicial</span>
+                </a>
+                <a href="estoque.html" class="sidebar-link">
+                    <span class="nav-icon">📦</span>
+                    <span class="item-text">Estoque</span>
+                </a>
+                <a href="vendas.html" class="sidebar-link">
+                    <span class="nav-icon">💵</span>
+                    <span class="item-text">Vendas</span>
+                </a>
+                <a href="servicos.html" class="sidebar-link">
+                    <span class="nav-icon">🛠️</span>
+                    <span class="item-text">Serviços</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="https://www.instagram.com/fishaquapets/" target="_blank" class="sidebar-link">
+                    <span class="nav-icon">📸</span>
+                    <span class="item-text">Instagram</span>
+                </a>
+                <a href="central-ajuda.html" class="sidebar-link active">
+                    <span class="nav-icon">❓</span>
+                    <span class="item-text">Central de ajuda</span>
+                </a>
+            </div>
+        </aside>
+
+        <main id="main-content" class="main-content-area flex-1 p-8 ml-64 transition-all duration-300 !w-full !max-w-none">
+            
+            <header class="flex items-center justify-start gap-4 mb-8 w-full max-w-[1200px] mx-auto">
+                <img src="imagens/logo.png" alt="Logo FishAqua Pets" class="w-12 h-12 object-cover rounded-full shadow-sm">
+                <div class="flex flex-col">
+                    <span class="text-2xl font-black text-[var(--navy-primary)] tracking-wide leading-none">CENTRAL DE AJUDA ❓</span>
+                    <span class="text-xs text-gray-400 font-semibold mt-1">Como podemos ajudar na operação da FishAqua Pets hoje?</span>
+                </div>
+            </header>
+
+            <div class="w-full max-w-[1200px] mx-auto bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 shadow-xl shadow-blue-100 mb-8 text-center text-white relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+                <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-cyan-400/20 rounded-full blur-xl"></div>
+                
+                <h2 class="text-xl font-black mb-2 z-10 relative">Base de Conhecimento FishAqua</h2>
+                <p class="text-xs text-blue-100 mb-6 max-w-md mx-auto z-10 relative">Pesquise por módulos, funcionalidades, regras de negócios de aquários ou solução de problemas.</p>
+                
+                <div class="max-w-xl mx-auto relative z-10">
+                    <span class="absolute left-4 top-3.5 text-gray-400 text-sm">🔍</span>
+                    <input type="text" id="input-ajuda" placeholder="Ex: Como funciona o cadeado do estoque, precificação..." class="w-full pl-10 pr-4 py-3 text-sm rounded-xl text-gray-800 outline-none border-none shadow-md placeholder-gray-400 font-medium focus:ring-2 focus:ring-cyan-300 transition-all">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-[1200px] mx-auto mb-10">
+                
+                <div class="bg-white border border-gray-100 p-6 rounded-2xl shadow-figma">
+                    <div class="w-10 h-10 bg-blue-50 text-blue-600 text-lg rounded-xl flex items-center justify-center mb-4">📦</div>
+                    <h3 class="text-sm font-black text-gray-800 mb-1">Guia de Estoque</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed font-medium mb-4">Aprenda a gerenciar produtos, configurar margens de custo, alertas de escassez e travas de segurança de inventário.</p>
+                    <ul class="text-xs font-semibold text-blue-600 space-y-2">
+                        <li><a href="#faq" class="hover:underline">➔ Ativar alertas de estoque mínimo</a></li>
+                        <li><a href="#faq" class="hover:underline">➔ Para que serve o ícone de Cadeado (🔒)?</a></li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border border-gray-100 p-6 rounded-2xl shadow-figma">
+                    <div class="w-10 h-10 bg-emerald-50 text-emerald-600 text-lg rounded-xl flex items-center justify-center mb-4">💵</div>
+                    <h3 class="text-sm font-black text-gray-800 mb-1">Fluxo de Vendas & PDV</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed font-medium mb-4">Dúvidas sobre o fechamento de caixa, emissão rápida de recibos na impressora térmica e cancelamento de ordens.</p>
+                    <ul class="text-xs font-semibold text-emerald-600 space-y-2">
+                        <li><a href="#faq" class="hover:underline">➔ Como reverter ou cancelar uma venda</a></li>
+                        <li><a href="#faq" class="hover:underline">➔ Utilizar o leitor de código de barras</a></li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border border-gray-100 p-6 rounded-2xl shadow-figma">
+                    <div class="w-10 h-10 bg-purple-50 text-purple-600 text-lg rounded-xl flex items-center justify-center mb-4">🛠️</div>
+                    <h3 class="text-sm font-black text-gray-800 mb-1">Catálogo de Serviços</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed font-medium mb-4">Instruções para cadastrar escopos de limpezas técnicas, cubagem (limite de litros) e contratos recorrentes.</p>
+                    <ul class="text-xs font-semibold text-purple-600 space-y-2">
+                        <li><a href="#faq" class="hover:underline">➔ Configurar recorrência (Mensal/Reef)</a></li>
+                        <li><a href="#faq" class="hover:underline">➔ Entender o cálculo de custo operacional</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div id="faq" class="w-full max-w-[1200px] mx-auto bg-white border border-gray-100 rounded-2xl shadow-figma p-6">
+                <h3 class="text-sm font-black text-gray-800 mb-1">💬 Perguntas Frequentes (FAQ)</h3>
+                <p class="text-xs text-gray-400 font-semibold mb-6">Respostas rápidas para as principais dúvidas da equipe de balcão e de campo</p>
+                
+                <div class="space-y-3">
+                    
+                    <details class="group bg-gray-50 border border-gray-100 rounded-xl p-4 transition-all [&_summary::-webkit-details-marker]:hidden">
+                        <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
+                            <h4 class="text-xs font-bold text-gray-700 group-open:text-blue-600 transition-colors">
+                                🔒 Para que serve o botão de Cadeado (🔒) na tabela de estoque?
+                            </h4>
+                            <span class="text-xs text-gray-400 font-bold group-open:rotate-180 transition-transform">▼</span>
+                        </summary>
+                        <p class="text-xs text-gray-500 font-medium leading-relaxed mt-3 pt-3 border-t border-gray-200/60">
+                            O botão de cadeado é uma **trava de segurança operacional**. Ao clicar nele, a linha daquele produto específico fica visualmente bloqueada no painel. Isso impede que outro operador clique acidentalmente no botão de editar (✏️) ou excluir (❌) enquanto realiza contagens físicas de estoque ou auditorias rápidas no balcão.
+                        </p>
+                    </details>
+
+                    <details class="group bg-gray-50 border border-gray-100 rounded-xl p-4 transition-all [&_summary::-webkit-details-marker]:hidden">
+                        <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
+                            <h4 class="text-xs font-bold text-gray-700 group-open:text-blue-600 transition-colors">
+                                🐠 Como funciona a restrição de "Volume Limite Atendido" nos Serviços?
+                            </h4>
+                            <span class="text-xs text-gray-400 font-bold group-open:rotate-180 transition-transform">▼</span>
+                        </summary>
+                        <p class="text-xs text-gray-500 font-medium leading-relaxed mt-3 pt-3 border-t border-gray-200/60">
+                            Diferente de produtos, serviços de aquarismo dependem da cubagem do ecossistema. Uma manutenção em um aquário de 300 Litros gasta muito menos insumos (sal sintético, condicionadores) e tempo do que um lago ornamental de 5000 Litros. Registrar esse limite garante que o atendente não venda um serviço subprecificado para um cliente com um ecossistema gigante.
+                        </p>
+                    </details>
+
+                    <details class="group bg-gray-50 border border-gray-100 rounded-xl p-4 transition-all [&_summary::-webkit-details-marker]:hidden">
+                        <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
+                            <h4 class="text-xs font-bold text-gray-700 group-open:text-blue-600 transition-colors">
+                                💵 Como realizar o cancelamento correto de uma venda?
+                            </h4>
+                            <span class="text-xs text-gray-400 font-bold group-open:rotate-180 transition-transform">▼</span>
+                        </summary>
+                        <p class="text-xs text-gray-500 font-medium leading-relaxed mt-3 pt-3 border-t border-gray-200/60">
+                            No menu **Vendas**, localize a transação utilizando os filtros de data ou o código identificador da venda (ex: #004). Ao clicar no painel de gerenciamento interno, altere o status para **"Cancelado"**. O sistema mudará a cor do card para vermelho e processará o estorno contábil do relatório bruto automaticamente.
+                        </p>
+                    </details>
+
+                    <details class="group bg-gray-50 border border-gray-100 rounded-xl p-4 transition-all [&_summary::-webkit-details-marker]:hidden">
+                        <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
+                            <h4 class="text-xs font-bold text-gray-700 group-open:text-blue-600 transition-colors">
+                                🔌 O leitor de código de barras físico precisa de alguma configuração na ERP?
+                            </h4>
+                            <span class="text-xs text-gray-400 font-bold group-open:rotate-180 transition-transform">▼</span>
+                        </summary>
+                        <p class="text-xs text-gray-500 font-medium leading-relaxed mt-3 pt-3 border-t border-gray-200/60">
+                            Não! Nossa ERP foi desenvolvida para ser compatível com tecnologia *Plug and Play*. Qualquer leitor USB padrão funcionará. Basta clicar em cima do campo **"Buscar produto por nome ou código..."** nas telas de Estoque ou Vendas e disparar o feixe de laser no código do produto; o preenchimento e filtro acontecerão instantaneamente.
+                        </p>
+                    </details>
+
+                </div>
+            </div>
+
+            <div class="w-full max-w-[1200px] mx-auto mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 p-5 bg-slate-50 border border-gray-200/60 rounded-xl text-center sm:text-left">
+                <div class="flex flex-col sm:flex-row items-center gap-3">
+                    <span class="text-xl">🧑‍💻</span>
+                    <div>
+                        <h4 class="text-xs font-black text-gray-800">Problemas críticos ou bugs no banco de dados?</h4>
+                        <p class="text-[11px] font-semibold text-gray-400">Contate o administrador do sistema ou o time de desenvolvimento ADS.</p>
+                    </div>
+                </div>
+                <button type="button" onclick="alert('Abrindo chamado técnico interno...')" class="px-4 py-2 bg-slate-800 text-white text-xs font-bold rounded-xl hover:bg-slate-900 transition-colors shadow-sm">
+                    Abrir Chamado
+                </button>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="sidebar.js"></script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FishAqua Pets - Hub Principal</title>
+    <title>FishAqua Pets - Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -68,67 +68,224 @@
             </div>
         </aside>
 
-        <main id="main-content" class="main-content-area flex-1 p-8 ml-64 transition-all duration-300">
+        <main id="main-content" class="main-content-area flex-1 p-8 ml-64 transition-all duration-300 !w-full !max-w-none">
             
-           <header class="flex items-center justify-start gap-4 mb-6 w-full pl-10">
+            <header class="flex items-center justify-start gap-4 mb-8 w-full max-w-[1400px] mx-auto">
                 <img src="imagens/logo.png" alt="Logo FishAqua Pets" class="w-12 h-12 object-cover rounded-full shadow-sm">
-                
                 <div class="flex flex-col">
                     <span class="text-2xl font-black text-[var(--navy-primary)] tracking-wide leading-none">FISH AQUA PETS 🦴</span>
+                    <span class="text-xs text-gray-400 font-semibold mt-1">Visão Geral e Painel de Analytics</span>
                 </div>
             </header>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8 w-full max-w-[1200px] mx-auto">
-                
-                <div class="lg:col-span-7 bg-white rounded-2xl p-6 shadow-figma border border-gray-100 min-h-[300px] flex flex-col justify-between">
-                    <div class="text-sm font-bold text-navy mb-4">Evolução de Vendas Semanal</div>
-                    <div class="flex-1 flex items-end justify-between border-b border-l p-4 h-48 relative">
-                        <div class="w-1/7 bg-blue-100 h-[40%] rounded-t-sm relative group"></div>
-                        <div class="w-1/7 bg-blue-400 h-[75%] rounded-t-sm relative group"></div>
-                        <div class="w-1/7 bg-blue-300 h-[60%] rounded-t-sm relative group"></div>
-                        <div class="w-1/7 bg-blue-100 h-[30%] rounded-t-sm relative group"></div>
-                        <div class="w-1/7 bg-blue-400 h-[50%] rounded-t-sm relative group"></div>
-                        <div class="w-1/7 bg-blue-400 h-[55%] rounded-t-sm relative group"></div>
-                        <div class="w-1/7 bg-blue-300 h-[45%] rounded-t-sm relative group"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8 w-full max-w-[1400px] mx-auto">
+                <div class="p-5 bg-white border border-gray-100 rounded-2xl shadow-figma flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl">💰</div>
+                    <div>
+                        <span class="block text-[10px] font-bold text-gray-400 uppercase tracking-wider">Faturamento Mensal</span>
+                        <span class="text-lg font-black text-gray-800">R$ 14.850,00</span>
                     </div>
-                    <div class="flex justify-between text-[10px] font-semibold text-gray-400 mt-2 px-4">
-                        <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                </div>
+                <div class="p-5 bg-white border border-gray-100 rounded-2xl shadow-figma flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-green-50 text-green-600 flex items-center justify-center text-xl">📈</div>
+                    <div>
+                        <span class="block text-[10px] font-bold text-gray-400 uppercase tracking-wider">Vendas Hoje</span>
+                        <span class="text-lg font-black text-gray-800">+ 24 Pedidos</span>
+                    </div>
+                </div>
+                <div class="p-5 bg-white border border-gray-100 rounded-2xl shadow-figma flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl">🧼</div>
+                    <div>
+                        <span class="block text-[10px] font-bold text-gray-400 uppercase tracking-wider">Serviços Ativos</span>
+                        <span class="text-lg font-black text-gray-800">18 Agendados</span>
+                    </div>
+                </div>
+                <div class="p-5 bg-white border border-gray-100 rounded-2xl shadow-figma flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl">⚠️</div>
+                    <div>
+                        <span class="block text-[10px] font-bold text-gray-400 uppercase tracking-wider">Estoque Alerta</span>
+                        <span class="text-lg font-black text-gray-800">4 Itens Baixos</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8 w-full max-w-[1400px] mx-auto items-stretch">
+                
+                <div class="lg:col-span-2 bg-white border border-gray-100 rounded-2xl shadow-figma p-6 flex flex-col justify-between min-h-[400px]">
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <h3 class="text-sm font-black text-gray-800">📈 Desempenho Operacional</h3>
+                            <span class="text-[11px] font-semibold text-gray-400">Comparativo de faturamento nas últimas semanas</span>
+                        </div>
+                        <div class="flex items-center gap-4 text-[10px] font-bold uppercase">
+                            <div class="flex items-center gap-1.5 text-blue-600">
+                                <span class="w-2.5 h-2.5 rounded-full bg-blue-600 block"></span> Produtos
+                            </div>
+                            <div class="flex items-center gap-1.5 text-emerald-500">
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 block"></span> Serviços
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex-grow flex items-end justify-between gap-4 h-60 pt-4 border-b border-gray-100 relative">
+                        <div class="absolute inset-x-0 top-0 border-t border-gray-100/70 text-[9px] text-gray-300 pt-1">R$ 5k</div>
+                        <div class="absolute inset-x-0 top-1/3 border-t border-gray-100/70 text-[9px] text-gray-300 pt-1">R$ 3.5k</div>
+                        <div class="absolute inset-x-0 top-2/3 border-t border-gray-100/70 text-[9px] text-gray-300 pt-1">R$ 1.5k</div>
+
+                        <div class="flex-1 flex flex-col items-center justify-end h-full z-10 group relative cursor-pointer">
+                            <div class="w-full max-w-[40px] flex items-end gap-1 h-full justify-center">
+                                <div class="bg-blue-600 w-1/2 rounded-t-md transition-all group-hover:brightness-95" style="height: 45%;"></div>
+                                <div class="bg-emerald-500 w-1/2 rounded-t-md transition-all group-hover:brightness-95" style="height: 60%;"></div>
+                            </div>
+                            <span class="text-[10px] font-bold text-gray-400 mt-2">Semana 01</span>
+                        </div>
+
+                        <div class="flex-1 flex flex-col items-center justify-end h-full z-10 group relative cursor-pointer">
+                            <div class="w-full max-w-[40px] flex items-end gap-1 h-full justify-center">
+                                <div class="bg-blue-600 w-1/2 rounded-t-md transition-all group-hover:brightness-95" style="height: 70%;"></div>
+                                <div class="bg-emerald-500 w-1/2 rounded-t-md transition-all group-hover:brightness-95" style="height: 40%;"></div>
+                            </div>
+                            <span class="text-[10px] font-bold text-gray-400 mt-2">Semana 02</span>
+                        </div>
+
+                        <div class="flex-1 flex flex-col items-center justify-end h-full z-10 group relative cursor-pointer">
+                            <div class="w-full max-w-[40px] flex items-end gap-1 h-full justify-center">
+                                <div class="bg-blue-600 w-1/2 rounded-t-md transition-all group-hover:brightness-95" style="height: 55%;"></div>
+                                <div class="bg-emerald-500 w-1/2 rounded-t-md transition-all group-hover:brightness-95" style="height: 85%;"></div>
+                            </div>
+                            <span class="text-[10px] font-bold text-gray-400 mt-2">Semana 03</span>
+                        </div>
+
+                        <div class="flex-1 flex flex-col items-center justify-end h-full z-10 group relative cursor-pointer">
+                            <div class="w-full max-w-[40px] flex items-end gap-1 h-full justify-center">
+                                <div class="bg-blue-600 w-1/2 rounded-t-md transition-all group-hover:brightness-95 shadow-lg shadow-blue-100" style="height: 90%;"></div>
+                                <div class="bg-emerald-500 w-1/2 rounded-t-md transition-all group-hover:brightness-95 shadow-lg shadow-emerald-100" style="height: 75%;"></div>
+                            </div>
+                            <span class="text-[10px] font-black text-blue-600 mt-2">Semana 04 🔥</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="lg:col-span-5 bg-white rounded-2xl p-6 shadow-figma border border-gray-100 flex flex-col items-center justify-between">
-                    <div class="w-full text-sm font-bold text-navy text-left mb-2">Principais vendas semanais</div>
-                    <div class="w-40 h-40 rounded-full border-[16px] border-blue-500 border-t-orange-400 border-r-purple-500 border-b-red-400 flex items-center justify-center">
-                        <span class="text-xs font-bold text-gray-400">Produtos</span>
+                <div class="bg-white border border-gray-100 rounded-2xl shadow-figma p-6 flex flex-col justify-between min-h-[400px]">
+                    <div>
+                        <div class="flex items-center justify-between mb-1">
+                            <h3 class="text-sm font-black text-gray-800">🏆 Itens Mais Populares</h3>
+                            <span class="text-xs bg-amber-50 text-amber-600 px-2 py-0.5 rounded-md font-bold">Mês Atual</span>
+                        </div>
+                        <p class="text-[11px] font-semibold text-gray-400 mb-5">Os produtos e serviços de maior saída no sistema</p>
+                        
+                        <div class="space-y-4">
+                            
+                            <div class="group">
+                                <div class="flex items-center justify-between text-xs mb-1">
+                                    <div class="flex flex-col">
+                                        <span class="font-bold text-gray-700 group-hover:text-blue-600 transition-colors">Limpeza de Lago Ornamental</span>
+                                        <span class="text-[10px] font-medium text-gray-400">Serviço • 14 ordens</span>
+                                    </div>
+                                    <span class="font-black text-gray-800">R$ 6.300</span>
+                                </div>
+                                <div class="w-full h-2 bg-gray-50 rounded-full overflow-hidden border border-gray-100/50">
+                                    <div class="h-full bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full" style="width: 92%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="group">
+                                <div class="flex items-center justify-between text-xs mb-1">
+                                    <div class="flex flex-col">
+                                        <span class="font-bold text-gray-700 group-hover:text-blue-600 transition-colors">Ração Premium Ciclídeos 500g</span>
+                                        <span class="text-[10px] font-medium text-gray-400">Produto • 42 unidades</span>
+                                    </div>
+                                    <span class="font-black text-gray-800">R$ 3.372</span>
+                                </div>
+                                <div class="w-full h-2 bg-gray-50 rounded-full overflow-hidden border border-gray-100/50">
+                                    <div class="h-full bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full" style="width: 68%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="group">
+                                <div class="flex items-center justify-between text-xs mb-1">
+                                    <div class="flex flex-col">
+                                        <span class="font-bold text-gray-700 group-hover:text-blue-600 transition-colors">Condicionador Seachem Prime</span>
+                                        <span class="text-[10px] font-medium text-gray-400">Produto • 19 unidades</span>
+                                    </div>
+                                    <span class="font-black text-gray-800">R$ 2.050</span>
+                                </div>
+                                <div class="w-full h-2 bg-gray-50 rounded-full overflow-hidden border border-gray-100/50">
+                                    <div class="h-full bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full" style="width: 45%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="group">
+                                <div class="flex items-center justify-between text-xs mb-1">
+                                    <div class="flex flex-col">
+                                        <span class="font-bold text-gray-700 group-hover:text-blue-600 transition-colors">Manutenção Preventiva Reef</span>
+                                        <span class="text-[10px] font-medium text-gray-400">Serviço • 11 ordens</span>
+                                    </div>
+                                    <span class="font-black text-gray-800">R$ 1.980</span>
+                                </div>
+                                <div class="w-full h-2 bg-gray-50 rounded-full overflow-hidden border border-gray-100/50">
+                                    <div class="h-full bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full" style="width: 41%;"></div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
-                    <div class="grid grid-cols-2 gap-x-4 gap-y-1 text-[10px] font-bold text-gray-500 mt-4 w-full">
-                        <div class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-purple-500"></span> Ração Canina</div>
-                        <div class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-red-400"></span> Peixe Beta</div>
-                        <div class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-blue-400"></span> Aquário 16L</div>
-                        <div class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-orange-400"></span> Ração de peixes</div>
+
+                    <div class="pt-4 border-t border-gray-50 text-center">
+                        <a href="vendas.html" class="text-xs font-bold text-blue-600 hover:text-blue-700 transition-colors inline-flex items-center gap-1">
+                            Ver relatório completo de vendas ➔
+                        </a>
                     </div>
                 </div>
 
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-[1200px] mx-auto">
-                <div class="bg-white rounded-xl p-4 shadow-figma border border-gray-100 flex flex-col gap-1">
-                    <span class="text-xs font-bold text-navy">Produtos em Estoque</span>
-                    <span class="text-xl font-black text-navy flex items-center gap-2"><span class="text-base">📦</span> 66</span>
-                </div>
-                <div class="bg-white rounded-xl p-4 shadow-figma border border-gray-100 flex flex-col gap-1">
-                    <span class="text-xs font-bold text-navy">Vendas Hoje</span>
-                    <span class="text-xl font-black text-navy flex items-center gap-2"><span class="text-base">💲</span> 68</span>
-                </div>
-                <div class="bg-white rounded-xl p-4 shadow-figma border border-gray-100 flex flex-col gap-1">
-                    <span class="text-xs font-bold text-navy">Serviços Ativos</span>
-                    <span class="text-xl font-black text-navy flex items-center gap-2"><span class="text-base">🔧</span> 25</span>
-                </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-[1400px] mx-auto mb-4">
+                
+                <a href="estoque.html" class="group block bg-white border border-gray-100 rounded-2xl shadow-figma p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:border-blue-100 relative overflow-hidden">
+                    <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-blue-50/40 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500"></div>
+                    
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-2xl font-normal group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                            📦
+                        </div>
+                        <span class="text-[10px] font-black text-gray-300 uppercase tracking-widest group-hover:text-blue-500 transition-colors">Acessar área</span>
+                    </div>
+                    <h4 class="text-base font-black text-gray-800 mb-1">Gerenciar Estoque</h4>
+                    <p class="text-xs text-gray-400 leading-relaxed font-medium">Controle total de produtos, leitor de código de barras, aviso de estoque mínimo e reposição automatizada.</p>
+                </a>
+
+                <a href="vendas.html" class="group block bg-white border border-gray-100 rounded-2xl shadow-figma p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:border-emerald-100 relative overflow-hidden">
+                    <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-emerald-50/40 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500"></div>
+                    
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center text-2xl font-normal group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+                            💵
+                        </div>
+                        <span class="text-[10px] font-black text-gray-300 uppercase tracking-widest group-hover:text-emerald-500 transition-colors">Acessar área</span>
+                    </div>
+                    <h4 class="text-base font-black text-gray-800 mb-1">Histórico de Vendas / PDV</h4>
+                    <p class="text-xs text-gray-400 leading-relaxed font-medium">Visualize faturamento em tempo real, gerencie recibos de vendas, ordens concluídas, pendentes e cancelamentos.</p>
+                </a>
+
+                <a href="servicos.html" class="group block bg-white border border-gray-100 rounded-2xl shadow-figma p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:border-purple-100 relative overflow-hidden">
+                    <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-purple-50/40 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500"></div>
+                    
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center text-2xl font-normal group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
+                            🛠️
+                        </div>
+                        <span class="text-[10px] font-black text-gray-300 uppercase tracking-widest group-hover:text-purple-500 transition-colors">Acessar área</span>
+                    </div>
+                    <h4 class="text-base font-black text-gray-800 mb-1">Catálogo de Serviços</h4>
+                    <p class="text-xs text-gray-400 leading-relaxed font-medium">Controle manutenções preventivas, limpezas de lagos e aquários, precificação dinâmica por tempo ou volume e escopos técnicos.</p>
+                </a>
+
             </div>
 
         </main>
     </div>
 
-<script src="sidebar.js"></script>
+    <script src="sidebar.js"></script>
 </body>
 </html>

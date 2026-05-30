@@ -42,11 +42,11 @@
                     <span class="nav-icon">🏠</span>
                     <span class="item-text">Pagina inicial</span>
                 </a>
-                <a href="estoque.html" class="sidebar-link active">
+                <a href="estoque.html" class="sidebar-link">
                     <span class="nav-icon">📦</span>
                     <span class="item-text">Estoque</span>
                 </a>
-                <a href="vendas.html" class="sidebar-link">
+                <a href="vendas.html" class="sidebar-link active">
                     <span class="nav-icon">💵</span>
                     <span class="item-text">Vendas</span>
                 </a>
@@ -72,7 +72,6 @@
             
             <header class="flex items-center justify-start gap-4 mb-6 w-full pl-10">
                 <img src="imagens/logo.png" alt="Logo FishAqua Pets" class="w-12 h-12 object-cover rounded-full shadow-sm">
-                
                 <div class="flex flex-col">
                     <span class="text-2xl font-black text-[var(--navy-primary)] tracking-wide leading-none">FISH AQUA PETS 🦴</span>
                 </div>
@@ -88,7 +87,7 @@
                     <div class="card shadow-figma">
                         <div class="search-container">
                             <span class="search-icon">🔍</span>
-                            <input type="text" placeholder="Buscar produto" class="search-input">
+                            <input type="text" id="pesquisa-produto" placeholder="Buscar produto" class="search-input">
                             <span class="filter-icon">⏳</span>
                         </div>
                         <div class="product-list">
@@ -96,87 +95,113 @@
                                 <span class="product-name">Ração</span>
                                 <div class="counter-actions">
                                     <span class="counter-value">0</span>
-                                    <div class="counter-buttons"><button class="btn-step">+</button><button class="btn-step">-</button></div>
-                                    <button class="btn-add">ADD</button>
+                                    <div class="counter-buttons">
+                                        <button class="btn-step btn-catalogo-mais">+</button>
+                                        <button class="btn-step btn-catalogo-menos">-</button>
+                                    </div>
+                                    <button class="btn-add" data-id="1" data-nome="Ração" data-preco="12.00">ADD</button>
                                 </div>
                             </div>
                             <div class="product-item">
                                 <span class="product-name">Ração gato adulto</span>
                                 <div class="counter-actions">
                                     <span class="counter-value">0</span>
-                                    <div class="counter-buttons"><button class="btn-step">+</button><button class="btn-step">-</button></div>
-                                    <button class="btn-add">ADD</button>
+                                    <div class="counter-buttons">
+                                        <button class="btn-step btn-catalogo-mais">+</button>
+                                        <button class="btn-step btn-catalogo-menos">-</button>
+                                    </div>
+                                    <button class="btn-add" data-id="2" data-nome="Ração gato adulto" data-preco="80.30">ADD</button>
                                 </div>
                             </div>
                             <div class="product-item">
                                 <span class="product-name">Saco de ração coelho</span>
                                 <div class="counter-actions">
                                     <span class="counter-value">0</span>
-                                    <div class="counter-buttons"><button class="btn-step">+</button><button class="btn-step">-</button></div>
-                                    <button class="btn-add">ADD</button>
+                                    <div class="counter-buttons">
+                                        <button class="btn-step btn-catalogo-mais">+</button>
+                                        <button class="btn-step btn-catalogo-menos">-</button>
+                                    </div>
+                                    <button class="btn-add" data-id="3" data-nome="Saco de ração coelho" data-preco="36.50">ADD</button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="form-fields-grid">
-                        <div>
-                            <label class="field-label">Data da venda</label>
-                            <input type="date" class="form-input shadow-figma">
-                        </div>
-                        <div>
-                            <label class="field-label">Produto</label>
-                            <select class="form-select shadow-figma"><option>Selecione o produto</option></select>
-                        </div>
-                        <div>
-                            <label class="field-label">Forma de pagamento</label>
-                            <select class="form-select shadow-figma"><option>Selecione a forma</option></select>
-                        </div>
-                        <div>
-                            <label class="field-label">Tipo de venda</label>
-                            <select class="form-select shadow-figma"><option>Selecione o tipo</option></select>
-                        </div>
-                    </div>
+                    <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm mt-4">
+                        <h3 class="text-sm font-bold text-gray-700 mb-4 flex items-center gap-2">
+                            📋 Informações da Venda
+                        </h3>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex flex-col gap-1">
+                                <label class="text-xs font-semibold text-blue-600">Desconto Manual (%)</label>
+                                <input type="number" id="input-desconto" value="0" min="0" max="100" class="w-full px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 font-medium text-gray-700">
+                            </div>
 
-                    <div>
-                        <label class="field-label">Descrição</label>
-                        <textarea rows="3" placeholder="Digite aqui as informações sobre a venda..." class="form-textarea shadow-figma"></textarea>
+                            <div class="flex flex-col gap-1">
+                                <label class="text-xs font-semibold text-blue-600">Dinheiro Recebido (R$)</label>
+                                <input type="number" id="dinheiro-recebido" step="0.01" placeholder="0,00" class="w-full px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 font-medium text-gray-700">
+                                <span id="texto-troco" class="text-xs font-bold text-green-600 mt-1 hidden">Troco: R$ 0,00</span>
+                            </div>
+
+                            <div class="flex flex-col gap-1">
+                                <label class="text-xs font-semibold text-blue-600">Forma de pagamento</label>
+                                <select class="w-full px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 text-gray-700 font-medium">
+                                    <option value="">Selecione a forma</option>
+                                    <option value="dinheiro">Dinheiro</option>
+                                    <option value="pix">Pix</option>
+                                    <option value="credito">Cartão de Crédito</option>
+                                    <option value="debito">Cartão de Débito</option>
+                                </select>
+                            </div>
+
+                            <div class="flex flex-col gap-1">
+                                <label class="text-xs font-semibold text-blue-600">Tipo de venda</label>
+                                <select class="w-full px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 text-gray-700 font-medium">
+                                    <option value="balcao">Pronta Entrega (Balcão)</option>
+                                    <option value="encomenda">Encomenda</option>
+                                    <option value="entrega">Entrega / Delivery</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-1 mt-4">
+                            <label class="text-xs font-semibold text-blue-600">Observações da venda</label>
+                            <textarea rows="2" placeholder="Caso precise anotar algo rápido (ex: nome do morador, deixar na portaria, etc)..." class="w-full px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 text-gray-700 resize-none"></textarea>
+                        </div>
                     </div>
                 </div>
 
                 <div class="right-column card shadow-figma container-cart">
                     <div class="cart-content">
-                        <div class="cart-header">
+                        <div class="cart-header flex justify-between items-center">
                             <h2 class="cart-title">🛒 Carrinho</h2>
-                            <span class="subtotal-label">Sub tot.</span>
+                            <span class="subtotal-label font-semibold text-xs text-gray-500">Subtot: <span id="subtotal-venda">R$ 0,00</span></span>
                         </div>
-                        <div class="cart-items-list">
-                            <div class="cart-item">
-                                <div class="cart-item-info">
-                                    <span class="item-title">Ração peixe</span>
-                                    <span class="item-subtitle">R$ 12,00 (Unit)</span>
-                                </div>
-                                <div class="cart-item-actions">
-                                    <div class="qty-badge"><span>Qtd: 5</span><span class="btn-delete">🗑️</span></div>
-                                    <span class="item-total-price">R$ 60,00</span>
-                                </div>
-                            </div>
+                        <div class="cart-items-list" id="itens-carrinho">
+                            <p class="text-sm text-gray-400 text-center py-8">Carrinho vazio</p>
                         </div>
                     </div>
 
                     <div class="cart-summary">
-                        <div class="summary-row row-delivery">
-                            <label class="checkbox-delivery-label">
-                                <input type="checkbox" checked class="checkbox-delivery"> ENT. / FRETE
+                        <div class="summary-row row-delivery flex justify-between items-center">
+                            <label class="checkbox-delivery-label flex items-center gap-1.5 cursor-pointer select-none">
+                                <input type="checkbox" id="chk-frete" class="checkbox-delivery"> ENT. / FRETE
                             </label>
-                            <span class="delivery-price">R$ 0,00</span>
+                            <div class="flex items-center gap-1">
+                                <span class="text-xs font-bold text-gray-400">R$</span>
+                                <input type="number" id="input-frete" value="0.00" min="0" step="0.01" disabled 
+                                    class="w-20 px-2 py-1 text-xs bg-gray-100 border border-gray-200 rounded-xl font-bold text-gray-700 text-right focus:outline-none focus:border-blue-400 disabled:opacity-40 transition-all">
+                            </div>
                         </div>
-                        <div class="summary-row text-gray-muted">
-                            <span>Desconto</span><span class="discount-badge">3%</span>
+                        
+                        <div class="summary-row text-gray-muted flex justify-between items-center">
+                            <span>Desconto (<span id="badge-porcentagem-desconto">0%</span>)</span>
+                            <span id="desconto-venda" class="discount-badge">R$ 0,00</span>
                         </div>
                         <div class="total-row">
                             <span class="total-label">Total</span>
-                            <span class="total-amount">R$ 77,60</span>
+                            <span id="total-venda" class="total-amount">R$ 0,00</span>
                         </div>
                     </div>
                 </div>
@@ -184,16 +209,276 @@
             </div>
 
             <footer class="actions-footer max-w-[1200px] mx-auto">
-                <a href="vendas.html" class="btn-action btn-cancel flex items-center justify-center">
+                <button class="btn-action btn-cancel flex items-center justify-center">
                     Limpar (Cancelar)
-                </a>
-                <a href="vendas.html" class="btn-action btn-save flex items-center justify-center text-center">
+                </button>
+                <button class="btn-action btn-save flex items-center justify-center text-center">
                     Salvar (Finalizar)
-                </a>
+                </button>
             </footer>
 
         </main>
     </div>
+
+    <script>
+        let carrinho = [];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const inputPesquisa = document.getElementById('pesquisa-produto');
+            const itensProdutos = document.querySelectorAll('.product-item');
+            
+            const containerCarrinho = document.getElementById('itens-carrinho');
+            const inputDesconto = document.getElementById('input-desconto');
+            const badgePorcentagemDesconto = document.getElementById('badge-porcentagem-desconto');
+            
+            // Novos Elementos do Frete
+            const chkFrete = document.getElementById('chk-frete');
+            const inputFrete = document.getElementById('input-frete');
+
+            const txtSubtotal = document.getElementById('subtotal-venda');
+            const txtDesconto = document.getElementById('desconto-venda');
+            const txtTotal = document.getElementById('total-venda');
+            const inputDinheiro = document.getElementById('dinheiro-recebido');
+            const textoTroco = document.getElementById('texto-troco');
+            const btnLimpar = document.querySelector('.btn-cancel');
+            const btnSalvar = document.querySelector('.btn-save'); 
+
+            /* ==========================================================================
+            1. SISTEMA DE PESQUISA EM TEMPO REAL
+            ========================================================================== */
+            if (inputPesquisa) {
+                inputPesquisa.addEventListener('input', () => {
+                    const termoBusca = inputPesquisa.value.toLowerCase().trim();
+                    itensProdutos.forEach(item => {
+                        const nomeProduto = item.querySelector('.product-name').textContent.toLowerCase();
+                        if (nomeProduto.includes(termoBusca)) {
+                            item.style.setProperty('display', 'flex', 'important');
+                        } else {
+                            item.style.setProperty('display', 'none', 'important');
+                        }
+                    });
+                });
+            }
+
+            /* ==========================================================================
+            2. CONTADORES INDIVIDUAIS DO CATÁLOGO (+ e -)
+            ========================================================================== */
+            itensProdutos.forEach(item => {
+                const btnMais = item.querySelector('.btn-catalogo-mais');
+                const btnMenos = item.querySelector('.btn-catalogo-menos');
+                const txtContador = item.querySelector('.counter-value');
+                const btnAdd = item.querySelector('.btn-add');
+
+                btnMais.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    let atual = parseInt(txtContador.textContent) || 0;
+                    txtContador.textContent = atual + 1;
+                });
+
+                btnMenos.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    let itemsAtuais = parseInt(txtContador.textContent) || 0;
+                    if (itemsAtuais > 0) {
+                        txtContador.textContent = itemsAtuais - 1;
+                    }
+                });
+
+                btnAdd.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const id = btnAdd.getAttribute('data-id');
+                    const nome = btnAdd.getAttribute('data-nome');
+                    const preco = parseFloat(btnAdd.getAttribute('data-preco'));
+                    
+                    let qtdParaAdicionar = parseInt(txtContador.textContent) || 0;
+                    if (qtdParaAdicionar === 0) qtdParaAdicionar = 1;
+
+                    adicionarAoCarrinho(id, nome, preco, qtdParaAdicionar);
+                    txtContador.textContent = "0";
+                });
+            });
+
+            /* ==========================================================================
+            3. EVENTOS DE DESCONTO E FRETE DINÂMICO
+            ========================================================================== */
+            if (inputDesconto) {
+                inputDesconto.addEventListener('input', () => {
+                    let valor = parseFloat(inputDesconto.value) || 0;
+                    if (valor < 0) inputDesconto.value = 0;
+                    if (valor > 100) inputDesconto.value = 100;
+                    atualizarInterface();
+                });
+            }
+
+            // Ativa / Desativa o Frete
+            if (chkFrete && inputFrete) {
+                chkFrete.addEventListener('change', () => {
+                    if (chkFrete.checked) {
+                        inputFrete.disabled = false;
+                        inputFrete.classList.remove('bg-gray-100');
+                        inputFrete.classList.add('bg-white');
+                        inputFrete.value = "10.00"; // Sugere um valor padrão ou deixa 0.00 se preferir
+                        inputFrete.select();
+                    } else {
+                        inputFrete.disabled = true;
+                        inputFrete.classList.remove('bg-white');
+                        inputFrete.classList.add('bg-gray-100');
+                        inputFrete.value = "0.00";
+                    }
+                    atualizarInterface();
+                });
+
+                inputFrete.addEventListener('input', () => {
+                    let valor = parseFloat(inputFrete.value) || 0;
+                    if (valor < 0) inputFrete.value = 0;
+                    atualizarInterface();
+                });
+            }
+
+            /* ==========================================================================
+            4. LÓGICA E RENDERIZAÇÃO DO CARRINHO
+            ========================================================================== */
+            function adicionarAoCarrinho(id, nome, preco, quantidade) {
+                const itemExistente = carrinho.find(item => item.id === id);
+                if (itemExistente) {
+                    itemExistente.qtd += quantidade;
+                } else {
+                    carrinho.push({ id, nome, preco, qtd: quantidade });
+                }
+                atualizarInterface();
+            }
+
+            window.alterarQtdCarrinho = function(id, operacao) {
+                const item = carrinho.find(item => item.id === id);
+                if (!item) return;
+
+                if (operacao === 'mais') {
+                    item.qtd++;
+                } else if (operacao === 'menos') {
+                    item.qtd--;
+                    if (item.qtd <= 0) {
+                        carrinho = carrinho.filter(item => item.id !== id);
+                    }
+                } else if (operacao === 'remover') {
+                    carrinho = carrinho.filter(item => item.id !== id);
+                }
+                atualizarInterface();
+            };
+
+            function atualizarInterface() {
+                if (!containerCarrinho) return;
+                containerCarrinho.innerHTML = '';
+                
+                if (carrinho.length === 0) {
+                    containerCarrinho.innerHTML = `<p class="text-sm text-gray-400 text-center py-8">Carrinho vazio</p>`;
+                    if(txtSubtotal) txtSubtotal.textContent = "R$ 0,00";
+                    if(txtDesconto) txtDesconto.textContent = "R$ 0,00";
+                    if(txtTotal) txtTotal.textContent = "R$ 0,00";
+                    if(badgePorcentagemDesconto) badgePorcentagemDesconto.textContent = "0%";
+                    atualizarTroco(0);
+                    return;
+                }
+
+                let subtotal = 0;
+                carrinho.forEach(item => {
+                    const totalItem = item.preco * item.qtd;
+                    subtotal += totalItem;
+
+                    containerCarrinho.innerHTML += `
+                        <div class="cart-item flex items-center justify-between bg-gray-50/50 p-3 rounded-xl border border-gray-100 mb-2">
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-800">${item.nome}</h4>
+                                <span class="text-xs text-gray-400">R$ ${item.preco.toFixed(2).replace('.', ',')} (Unit)</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="flex items-center gap-2 bg-white px-2 py-1 rounded-lg border border-gray-200 text-xs font-medium text-gray-700">
+                                    <button onclick="alterarQtdCarrinho('${item.id}', 'menos')" class="hover:text-red-500 font-bold px-1 text-gray-500">-</button>
+                                    <span>Qtd: ${item.qtd}</span>
+                                    <button onclick="alterarQtdCarrinho('${item.id}', 'mais')" class="hover:text-blue-500 font-bold px-1 text-gray-500">+</button>
+                                    <span onclick="alterarQtdCarrinho('${item.id}', 'remover')" class="btn-delete" style="cursor: pointer; margin-left: 4px;">🗑️</span>
+                                </div>
+                                <span class="text-sm font-bold text-blue-900">R$ ${totalItem.toFixed(2).replace('.', ',')}</span>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                // Cálculos de Totais, Desconto e Frete
+                const porcDesconto = inputDesconto ? (parseFloat(inputDesconto.value) || 0) : 0;
+                const valorDesconto = subtotal * (porcDesconto / 100);
+                
+                let valorFrete = 0;
+                if (chkFrete && chkFrete.checked) {
+                    valorFrete = parseFloat(inputFrete.value) || 0;
+                }
+
+                const totalGeral = subtotal - valorDesconto + valorFrete;
+
+                // Atualiza a Interface de Resumo
+                if(badgePorcentagemDesconto) badgePorcentagemDesconto.textContent = `${porcDesconto}%`;
+                if(txtSubtotal) txtSubtotal.textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+                if(txtDesconto) txtDesconto.textContent = `- R$ ${valorDesconto.toFixed(2).replace('.', ',')}`;
+                if(txtTotal) txtTotal.textContent = `R$ ${totalGeral.toFixed(2).replace('.', ',')}`;
+
+                atualizarTroco(totalGeral);
+            }
+
+            /* ==========================================================================
+            5. LÓGICA DO TROCO AUTOMÁTICO
+            ========================================================================== */
+            if (inputDinheiro) {
+                inputDinheiro.addEventListener('input', () => {
+                    const totalGeral = parseFloat(txtTotal.textContent.replace('R$', '').replace(',', '.').trim()) || 0;
+                    atualizarTroco(totalGeral);
+                });
+            }
+
+            function atualizarTroco(totalVenda) {
+                if (!inputDinheiro || !textoTroco) return;
+                const valorPago = parseFloat(inputDinheiro.value) || 0;
+
+                if (valorPago > totalVenda && totalVenda > 0) {
+                    const troco = valorPago - totalVenda;
+                    textoTroco.textContent = `Troco: R$ ${troco.toFixed(2).replace('.', ',')}`;
+                    textoTroco.classList.remove('hidden');
+                } else {
+                    textoTroco.classList.add('hidden');
+                }
+            }
+
+            /* ==========================================================================
+            6. BOTÃO LIMPAR (CANCELAR)
+            ========================================================================== */
+            if (btnLimpar) {
+                btnLimpar.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    carrinho = [];
+                    if (inputDinheiro) inputDinheiro.value = '';
+                    if (inputDesconto) inputDesconto.value = 0;
+                    
+                    if (chkFrete) {
+                        chkFrete.checked = false;
+                        inputFrete.disabled = true;
+                        inputFrete.classList.remove('bg-white');
+                        inputFrete.classList.add('bg-gray-100');
+                        inputFrete.value = "0.00";
+                    }
+                    
+                    atualizarInterface();
+                });
+            }
+
+            if (btnSalvar) {
+                btnSalvar.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Dica: No futuro, você pode colocar o seu fetch/axios aqui antes de redirecionar!
+                    
+                    // Redireciona para a tela de vendas
+                    window.location.href = 'vendas.html';
+                });
+            }
+        });
+    </script>
 
 <script src="sidebar.js"></script>
 </body>

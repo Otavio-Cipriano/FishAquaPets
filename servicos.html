@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FishAqua Pets - Serviços</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="dashboard-body overflow-x-hidden">
@@ -17,7 +17,6 @@
         </button>
 
         <aside id="app-sidebar" class="sidebar-container shadow-figma fixed top-0 left-0 h-full z-40 transform translate-x-0 transition-transform duration-300">
-            
             <div class="sidebar-header">
                 <div class="profile-box">
                     <div class="profile-avatar">
@@ -80,94 +79,192 @@
                 </div>
             </header>
 
-            <div class="flex items-center gap-6 mb-8 w-full !max-w-[1400px] mx-auto">
-                <div class="search-container flex-grow relative mb-0 dashboard-search !w-full">
-                    <span class="search-icon">🔍</span>
-                    <input type="text" placeholder="Pesquisar serviço" class="search-input !w-full">
-                    <span class="filter-icon">⏳</span>
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-6 w-full !max-w-[1400px] mx-auto">
+                
+                <div class="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto flex-grow max-w-3xl justify-start">
+                    <div class="search-container flex-grow relative mb-0 dashboard-search !w-full">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="input-pesquisa" placeholder="Buscar serviço por nome ou código..." class="search-input !w-full">
+                    </div>
+                    
+                    <select id="filtro-status" class="w-full sm:w-auto bg-white px-4 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-500 outline-none shadow-sm cursor-pointer font-semibold transition-all hover:border-gray-300">
+                        <option value="">Todos os Status</option>
+                        <option value="ativo">Ativos</option>
+                        <option value="pendente">Pendentes</option>
+                        <option value="inativo">Inativos</option>
+                    </select>
                 </div>
-                <a href="#" class="btn-action btn-save flex items-center justify-center text-center header-btn-new whitespace-nowrap">
-                    Novo serviço
-                </a>
+
+                <div class="flex items-center gap-3 w-full md:w-auto justify-end">
+                    <a href="cadastrar-servico.html" class="btn-action btn-save flex items-center justify-center text-center header-btn-new whitespace-nowrap !mb-0">
+                        ➕ Novo Serviço
+                    </a>
+                    
+                    <div class="relative inline-block text-left">
+                        <button id="btn-mais-acoes" class="px-4 py-2.5 bg-white border border-gray-200 text-gray-700 text-sm font-semibold rounded-xl shadow-sm hover:bg-gray-50 transition-colors flex items-center gap-2">
+                            ⚙️ Mais ações <span class="text-xs text-gray-400">▼</span>
+                        </button>
+
+                        <div id="dropdown-acoes" class="hidden absolute right-0 mt-2 w-56 bg-white border border-gray-100 rounded-xl shadow-xl z-50 py-2">
+                            <span class="block px-4 py-1.5 text-[10px] font-bold text-gray-400 uppercase tracking-wider">Relatórios</span>
+                            <button type="button" onclick="alert('Exportando catálogo de serviços...')" class="w-full text-left px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 font-medium flex items-center gap-2">
+                                📊 Exportar Serviços (Excel)
+                            </button>
+                            <button type="button" onclick="alert('Gerando PDF de ordens...')" class="w-full text-left px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 font-medium flex items-center gap-2">
+                                📄 Imprimir Tabela de Preços
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="sales-list w-full !max-w-[1400px] mx-auto flex flex-col gap-4">
-                
-                <div class="sale-card shadow-figma !w-full">
-                    <div class="sale-info">
-                        <span class="sale-product-title">Entrega domiciliar</span>
-                        <div class="flex items-center gap-6 mt-1">
-                            <span class="text-sm font-medium text-gray-600">Pedro Santos</span>
-                            <span class="sale-date !mt-0">30/10/2026</span>
-                        </div>
-                    </div>
-                    <div class="sale-meta">
-                        <span class="sale-price">R$: 67,67</span>
-                        <span class="status-tag status-success">Concluída</span>
-                    </div>
-                </div>
+            <div class="w-full !max-w-[1400px] mx-auto bg-white rounded-2xl shadow-figma border border-gray-100 overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-50/75 border-b border-gray-100">
+                                <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500">Código</th>
+                                <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500">Serviço</th>
+                                <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500">Categoria</th>
+                                <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500">Preço Base</th>
+                                <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500">Recorrência</th>
+                                <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500 text-center">Status</th>
+                                <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500 text-center">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-servicos" class="divide-y divide-gray-100">
+                            
+                            <tr class="linha-servico hover:bg-blue-50/20 transition-colors">
+                                <td class="px-6 py-4 text-sm font-mono text-gray-500">SRV-001</td>
+                                <td class="px-6 py-4 text-sm font-semibold text-gray-800">Limpeza Completa de Lago Ornamental</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">Limpeza Geral</td>
+                                <td class="px-6 py-4 text-sm font-bold text-gray-700">R$ 450,00</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">Mensal</td>
+                                <td class="px-6 py-4 text-sm text-center col-status">
+                                    <span class="px-2.5 py-1 text-xs font-semibold text-green-700 bg-green-50 rounded-lg border border-green-200">Ativo</span>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-center">
+                                    <div class="flex items-center justify-center gap-2">
+                                        <a href="#" title="Visualizar" class="p-1.5 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors text-sm">👁️</a>
+                                        <a href="#" title="Editar" class="p-1.5 bg-amber-50 text-amber-600 rounded-lg hover:bg-amber-100 transition-colors text-sm">✏️</a>
+                                        <button title="Excluir" class="p-1.5 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors">❌</button>
+                                    </div>
+                                </td>
+                            </tr>
 
-                <div class="sale-card shadow-figma !w-full">
-                    <div class="sale-info">
-                        <span class="sale-product-title">Manutenção de aquário</span>
-                        <div class="flex items-center gap-6 mt-1">
-                            <span class="text-sm font-medium text-gray-600">Pedro Santos</span>
-                            <span class="sale-date !mt-0">30/05/2026</span>
-                        </div>
-                    </div>
-                    <div class="sale-meta">
-                        <span class="sale-price">R$: 36,50</span>
-                        <span class="status-tag status-warning">Agendada</span>
-                    </div>
-                </div>
+                            <tr class="linha-servico hover:bg-blue-50/20 transition-colors">
+                                <td class="px-6 py-4 text-sm font-mono text-gray-500">SRV-002</td>
+                                <td class="px-6 py-4 text-sm font-semibold text-gray-800">Manutenção Preventiva de Aquário Reef</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">Manutenção Preventiva</td>
+                                <td class="px-6 py-4 text-sm font-bold text-gray-700">R$ 180,00</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">Quinzenal</td>
+                                <td class="px-6 py-4 text-sm text-center col-status">
+                                    <span class="px-2.5 py-1 text-xs font-semibold text-green-700 bg-green-50 rounded-lg border border-green-200">Ativo</span>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-center">
+                                    <div class="flex items-center justify-center gap-2">
+                                        <a href="#" title="Visualizar" class="p-1.5 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors text-sm">👁️</a>
+                                        <a href="#" title="Editar" class="p-1.5 bg-amber-50 text-amber-600 rounded-lg hover:bg-amber-100 transition-colors text-sm">✏️</a>
+                                        <button title="Excluir" class="p-1.5 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors">❌</button>
+                                    </div>
+                                </td>
+                            </tr>
 
-                <div class="sale-card shadow-figma !w-full">
-                    <div class="sale-info">
-                        <span class="sale-product-title">Manutenção de aquário</span>
-                        <div class="flex items-center gap-6 mt-1">
-                            <span class="text-sm font-medium text-gray-600">Pedro Santos</span>
-                            <span class="sale-date !mt-0">20/03/2026</span>
-                        </div>
-                    </div>
-                    <div class="sale-meta">
-                        <span class="sale-price">R$: 62,35</span>
-                        <span class="status-tag status-success">Concluída</span>
-                    </div>
-                </div>
+                            <tr class="linha-servico hover:bg-blue-50/20 transition-colors">
+                                <td class="px-6 py-4 text-sm font-mono text-gray-500">SRV-003</td>
+                                <td class="px-6 py-4 text-sm font-semibold text-gray-800">Restauração Ecológica e Hardscape</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">Restauração / Paisagismo</td>
+                                <td class="px-6 py-4 text-sm font-bold text-gray-700">R$ 1.200,00</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">Avulso (Único)</td>
+                                <td class="px-6 py-4 text-sm text-center col-status">
+                                    <span class="px-2.5 py-1 text-xs font-semibold text-amber-700 bg-amber-50 rounded-lg border border-amber-200">Pendente</span>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-center">
+                                    <div class="flex items-center justify-center gap-2">
+                                        <a href="#" title="Visualizar" class="p-1.5 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors text-sm">👁️</a>
+                                        <a href="#" title="Editar" class="p-1.5 bg-amber-50 text-amber-600 rounded-lg hover:bg-amber-100 transition-colors text-sm">✏️</a>
+                                        <button title="Excluir" class="p-1.5 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors">❌</button>
+                                    </div>
+                                </td>
+                            </tr>
 
-                <div class="sale-card shadow-figma !w-full">
-                    <div class="sale-info">
-                        <span class="sale-product-title">Entrega domiciliar</span>
-                        <div class="flex items-center gap-6 mt-1">
-                            <span class="text-sm font-medium text-gray-600">Pedro Santos</span>
-                            <span class="sale-date !mt-0">06/04/2026</span>
-                        </div>
-                    </div>
-                    <div class="sale-meta">
-                        <span class="sale-price">R$: 80,30</span>
-                        <span class="status-tag bg-blue-50 text-blue-600 border border-blue-200">Em curso</span>
-                    </div>
-                </div>
+                            <tr class="linha-servico hover:bg-blue-50/20 transition-colors">
+                                <td class="px-6 py-4 text-sm font-mono text-gray-500">SRV-004</td>
+                                <td class="px-6 py-4 text-sm font-semibold text-gray-800">Instalação de Chiller e Sistema de Co2</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">Instalação / Montagem</td>
+                                <td class="px-6 py-4 text-sm font-bold text-gray-700">R$ 350,00</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">Avulso (Único)</td>
+                                <td class="px-6 py-4 text-sm text-center col-status">
+                                    <span class="px-2.5 py-1 text-xs font-semibold text-gray-600 bg-gray-50 rounded-lg border border-gray-200">Inativo</span>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-center">
+                                    <div class="flex items-center justify-center gap-2">
+                                        <a href="#" title="Visualizar" class="p-1.5 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors text-sm">👁️</a>
+                                        <a href="#" title="Editar" class="p-1.5 bg-amber-50 text-amber-600 rounded-lg hover:bg-amber-100 transition-colors text-sm">✏️</a>
+                                        <button title="Excluir" class="p-1.5 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors">❌</button>
+                                    </div>
+                                </td>
+                            </tr>
 
-                <div class="sale-card shadow-figma !w-full">
-                    <div class="sale-info">
-                        <span class="sale-product-title">Manutenção de aquário</span>
-                        <div class="flex items-center gap-6 mt-1">
-                            <span class="text-sm font-medium text-gray-600">Pedro Santos</span>
-                            <span class="sale-date !mt-0">06/04/2026</span>
-                        </div>
-                    </div>
-                    <div class="sale-meta">
-                        <span class="sale-price">R$: 80,30</span>
-                        <span class="status-tag status-danger">Cancelado</span>
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
-
             </div>
 
         </main>
     </div>
 
-<script src="sidebar.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. LÓGICA DO DROPDOWN "MAIS AÇÕES"
+            const btnMaisAcoes = document.getElementById('btn-mais-acoes');
+            const dropdownAces = document.getElementById('dropdown-acoes');
+
+            if (btnMaisAcoes && dropdownAces) {
+                btnMaisAcoes.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    dropdownAces.classList.toggle('hidden');
+                });
+                document.addEventListener('click', () => {
+                    dropdownAces.classList.add('hidden');
+                });
+            }
+
+            // 2. SISTEMA DE FILTRO COMBINADO (BUSCA POR TEXTO + STATUS)
+            const inputPesquisa = document.getElementById('input-pesquisa');
+            const filtroStatus = document.getElementById('filtro-status');
+            const linhasServicos = document.querySelectorAll('.linha-servico');
+
+            function filtrarServicos() {
+                const termo = inputPesquisa.value.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+                const statusSelecionado = filtroStatus.value.toLowerCase().trim();
+
+                linhasServicos.forEach(linha => {
+                    const textoCompletoLinha = linha.textContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+                    
+                    // Captura especificamente a célula do status para validação precisa
+                    const celulaStatus = linha.querySelector('.col-status').textContent.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+
+                    // Validações
+                    const bateTexto = termo === '' || textoCompletoLinha.includes(termo);
+                    const bateStatus = statusSelecionado === '' || celulaStatus.startsWith(statusSelecionado);
+
+                    if (bateTexto && bateStatus) {
+                        linha.style.display = '';
+                    } else {
+                        linha.style.display = 'none';
+                    }
+                });
+            }
+
+            if (inputPesquisa && filtroStatus) {
+                inputPesquisa.addEventListener('input', filtrarServicos);
+                filtroStatus.addEventListener('change', filtrarServicos);
+            }
+        });
+    </script>
+
+    <script src="sidebar.js"></script>
 </body>
 </html>

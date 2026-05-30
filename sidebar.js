@@ -47,3 +47,40 @@ function toggleRowLock(button) {
         button.classList.add('bg-gray-50', 'text-gray-600', 'border-gray-200');
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Localiza o input do Modo Noturno dentro da sidebar
+    const inputDarkMode = document.querySelector('.darkmode-toggle input');
+
+    // Função para aplicar ou remover o tema escuro
+    function aplicarTema(isDark) {
+        if (isDark) {
+            document.body.classList.add('dark-mode');
+            if (inputDarkMode) inputDarkMode.checked = true;
+        } else {
+            document.body.classList.remove('dark-mode');
+            if (inputDarkMode) inputDarkMode.checked = false;
+        }
+    }
+
+    // 1. Ao carregar a página: Verifica se o usuário já tinha deixado o modo noturno ativo antes
+    const temaSalvo = localStorage.getItem('fishaqua-theme');
+    if (temaSalvo === 'dark') {
+        aplicarTema(true);
+    } else {
+        aplicarTema(false);
+    }
+
+    // 2. Ouvinte de Clique: Quando o usuário arrasta a chave seletora
+    if (inputDarkMode) {
+        inputDarkMode.addEventListener('change', () => {
+            if (inputDarkMode.checked) {
+                aplicarTema(true);
+                localStorage.setItem('fishaqua-theme', 'dark'); // Salva a escolha
+            } else {
+                aplicarTema(false);
+                localStorage.setItem('fishaqua-theme', 'light'); // Salva a escolha
+            }
+        });
+    }
+});

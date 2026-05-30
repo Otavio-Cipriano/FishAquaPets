@@ -17,7 +17,6 @@
         </button>
 
         <aside id="app-sidebar" class="sidebar-container shadow-figma fixed top-0 left-0 h-full z-40 transform translate-x-0 transition-transform duration-300">
-            
             <div class="sidebar-header">
                 <div class="profile-box">
                     <div class="profile-avatar">
@@ -25,9 +24,7 @@
                     </div>
                     <span class="profile-name">Olá! Jhon Doe.</span>
                 </div>
-                <button id="btn-close-sidebar" class="sidebar-toggle-btn close-btn">
-                    ◀
-                </button>
+                <button id="btn-close-sidebar" class="sidebar-toggle-btn close-btn">◀</button>
             </div>
 
             <div class="sidebar-item darkmode-toggle">
@@ -71,76 +68,381 @@
             </div>
         </aside>
 
-        <main id="main-content" class="main-content-area flex-1 p-8 ml-64 transition-all duration-300 !w-full !max-w-none">
+        <main id="main-content" class="main-content-area flex-1 p-8 ml-64 transition-all duration-300">
             
-            <header class="flex items-center justify-start gap-4 mb-6 w-full max-w-[1400px] mx-auto">
+            <header class="flex items-center justify-start gap-4 mb-6 w-full pl-10">
                 <img src="imagens/logo.png" alt="Logo FishAqua Pets" class="w-12 h-12 object-cover rounded-full shadow-sm">
                 <div class="flex flex-col">
                     <span class="text-2xl font-black text-[var(--navy-primary)] tracking-wide leading-none">FISH AQUA PETS 🦴</span>
                 </div>
             </header>
 
-            <div class="flex items-center gap-6 mb-8 w-full !max-w-[1400px] mx-auto">
-                <div class="search-container flex-grow relative mb-0 dashboard-search !w-full">
-                    <span class="search-icon">🔍</span>
-                    <input type="text" placeholder="Pesquisar venda" class="search-input !w-full">
-                    <span class="filter-icon">⏳</span>
-                </div>
-                <a href="PDV.html" class="btn-action btn-save flex items-center justify-center text-center header-btn-new whitespace-nowrap">
-                    Nova venda
-                </a>
-            </div>
-
-            <div class="sales-list w-full !max-w-[1400px] mx-auto flex flex-col gap-4">
+            <div class="max-w-[1200px] mx-auto">
                 
-                <div class="sale-card shadow-figma !w-full">
-                    <div class="sale-info">
-                        <span class="sale-product-title">Ração</span>
-                        <span class="sale-date">30/03/2026</span>
+                <div class="flex justify-between items-center mb-6">
+                    
+                    <div class="flex items-center gap-3 bg-white px-4 py-2 rounded-xl border border-gray-200 shadow-sm w-96">
+                        <span class="text-gray-400 text-sm">🔍</span>
+                        <input type="text" id="pesquisa-venda" placeholder="Buscar produto..." class="bg-transparent border-none outline-none text-sm text-gray-500 w-full placeholder-gray-400 font-medium">
                     </div>
-                    <div class="sale-meta">
-                        <span class="sale-price">R$: 67,67</span>
-                        <span class="status-tag status-success">Concluída</span>
+                    
+                    <div class="flex items-center gap-3">
+                        <select id="filtro-status" class="bg-white px-4 py-2 rounded-xl border border-gray-200 text-sm text-gray-500 outline-none shadow-sm cursor-pointer">
+                            <option value="">Todos os Status</option>
+                            <option value="concluí">Concluído</option> <option value="pendente">Pendente</option>
+                            <option value="cancelad">Cancelado</option>
+                        </select>
+
+                        <input type="date" id="filtro-data" class="bg-white px-4 py-2 rounded-xl border border-gray-200 text-sm text-gray-500 outline-none shadow-sm cursor-pointer transition-all hover:border-gray-300">
+
+                        <a href="PDV.html" class="btn-action btn-save flex items-center justify-center text-center header-btn-new whitespace-nowrap !mb-0">
+                            ➕ Nova Venda (PDV)
+                        </a>
                     </div>
                 </div>
 
-                <div class="sale-card shadow-figma !w-full">
-                    <div class="sale-info">
-                        <span class="sale-product-title">Ração 2</span>
-                        <span class="sale-date">30/03/2026</span>
-                    </div>
-                    <div class="sale-meta">
-                        <span class="sale-price">R$: 36,50</span>
-                        <span class="status-tag status-warning">Encomenda</span>
-                    </div>
-                </div>
+                <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-50 border-b border-gray-100">
+                                <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500">ID Venda</th>
+                                <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500">Produto Principal</th>
+                                <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500">Data</th>
+                                <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500">Valor Total</th>
+                                <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500 text-center">Status</th>
+                                <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500 text-center">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-50">
+                            <tr class="linha-venda hover:bg-blue-50/20 transition-colors">
+                                <td class="px-6 py-4 text-sm font-mono text-gray-500">#001</td>
+                                <td class="px-6 py-4 text-sm font-semibold text-gray-800">Ração Gato Adulto</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">06/04/2026</td>
+                                <td class="px-6 py-4 text-sm font-bold text-gray-700">R$ 80,30</td>
+                                <td class="px-6 py-4 text-sm text-center">
+                                    <span class="px-2.5 py-1 text-xs font-semibold text-green-700 bg-green-50 rounded-lg border border-green-200">Concluído</span>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-center">
+                                    <div class="flex items-center justify-center gap-2">
+                                        <button onclick="abrirVisualizar('001')" title="Ver Detalhes" class="p-1.5 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors">👁️</button>
+                                        <button onclick="abrirRecibo('001')" title="Imprimir Recibo" class="p-1.5 bg-gray-50 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors">🖨️</button>
+                                    </div>
+                                </td>
+                            </tr>
 
-                <div class="sale-card shadow-figma !w-full">
-                    <div class="sale-info">
-                        <span class="sale-product-title">Ração 3</span>
-                        <span class="sale-date">30/03/2026</span>
-                    </div>
-                    <div class="sale-meta">
-                        <span class="sale-price">R$: 80,30</span>
-                        <span class="status-tag status-success">Concluída</span>
-                    </div>
-                </div>
+                            <tr class="linha-venda hover:bg-blue-50/20 transition-colors">
+                                <td class="px-6 py-4 text-sm font-mono text-gray-500">#002</td>
+                                <td class="px-6 py-4 text-sm font-semibold text-gray-800">Ração Top Dog</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">06/04/2026</td>
+                                <td class="px-6 py-4 text-sm font-bold text-gray-700">R$ 69,47</td>
+                                <td class="px-6 py-4 text-sm text-center">
+                                    <span class="px-2.5 py-1 text-xs font-semibold text-green-700 bg-green-50 rounded-lg border border-green-200">Concluído</span>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-center">
+                                    <div class="flex items-center justify-center gap-2">
+                                        <button onclick="abrirVisualizar('002')" title="Ver Detalhes" class="p-1.5 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors">👁️</button>
+                                        <button onclick="abrirRecibo('002')" title="Imprimir Recibo" class="p-1.5 bg-gray-50 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors">🖨️</button>
+                                    </div>
+                                </td>
+                            </tr>
 
-                <div class="sale-card shadow-figma !w-full">
-                    <div class="sale-info">
-                        <span class="sale-product-title">Ração 4</span>
-                        <span class="sale-date">06/04/2026</span>
-                    </div>
-                    <div class="sale-meta">
-                        <span class="sale-price">R$: 80,30</span>
-                        <span class="status-tag status-danger">Cancelado</span>
-                    </div>
-                </div>
+                            <tr class="linha-venda hover:bg-blue-50/20 transition-colors">
+                                <td class="px-6 py-4 text-sm font-mono text-gray-500">#003</td>
+                                <td class="px-6 py-4 text-sm font-semibold text-gray-800">Saco de ração coelho</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">05/04/2026</td>
+                                <td class="px-6 py-4 text-sm font-bold text-gray-700">R$ 98,55</td>
+                                <td class="px-6 py-4 text-sm text-center">
+                                    <span class="px-2.5 py-1 text-xs font-semibold text-amber-700 bg-amber-50 rounded-lg border border-amber-200">Pendente</span>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-center">
+                                    <div class="flex items-center justify-center gap-2">
+                                        <button onclick="abrirVisualizar('003')" title="Ver Detalhes" class="p-1.5 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors">👁️</button>
+                                        <button onclick="abrirRecibo('003')" title="Imprimir Recibo" class="p-1.5 bg-gray-50 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors">🖨️</button>
+                                    </div>
+                                </td>
+                            </tr>
 
+                            <tr class="linha-venda hover:bg-blue-50/20 transition-colors">
+                                <td class="px-6 py-4 text-sm font-mono text-gray-500">#004</td>
+                                <td class="px-6 py-4 text-sm font-semibold text-gray-800">Ração Premiata 15kg</td>
+                                <td class="px-6 py-4 text-sm text-gray-600">06/04/2026</td>
+                                <td class="px-6 py-4 text-sm font-bold text-gray-700">R$ 80,30</td>
+                                <td class="px-6 py-4 text-sm text-center">
+                                    <span class="px-2.5 py-1 text-xs font-semibold text-red-700 bg-red-50 rounded-lg border border-red-200">Cancelado</span>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-center">
+                                    <div class="flex items-center justify-center gap-2">
+                                        <button onclick="abrirVisualizar('004')" title="Ver Detalhes" class="p-1.5 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors">👁️</button>
+                                        <button onclick="abrirRecibo('004')" title="Imprimir Recibo" class="p-1.5 bg-gray-50 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors">🖨️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-
         </main>
     </div>
+
+    <div id="modal-recibo" class="fixed inset-0 bg-black/40 backdrop-blur-xs flex items-center justify-center z-50 hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-2xl p-6 shadow-figma w-full max-w-sm text-center transform scale-95 transition-transform duration-300">
+            <div class="text-4xl mb-3">🖨️</div>
+            <h3 class="text-lg font-bold text-gray-800 mb-1">Emitindo Recibo</h3>
+            <p class="text-sm text-gray-500 mb-5">O cupom não-fiscal da venda <span id="recibo-id" class="font-mono font-bold text-blue-600"></span> foi enviado para a fila de impressão da bobina.</p>
+            <button onclick="fecharRecibo()" class="w-full py-2 bg-gray-900 text-white font-bold rounded-xl text-sm hover:bg-gray-800 transition-all">
+                Concluído
+            </button>
+        </div>
+    </div>
+
+    <div id="modal-visualizar" class="fixed inset-0 bg-black/40 backdrop-blur-xs flex items-center justify-center z-50 hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-2xl shadow-figma w-full max-w-lg overflow-hidden transform scale-95 transition-transform duration-300">
+            <div class="p-5 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
+                <div>
+                    <h3 class="text-base font-bold text-gray-800">Ficha da Venda <span id="venda-detalhe-id" class="font-mono text-blue-600"></span></h3>
+                    <p class="text-xs text-gray-400 font-medium">Realizada em <span id="venda-detalhe-data"></span></p>
+                </div>
+                <span id="venda-detalhe-status" class="px-2.5 py-1 text-xs font-bold rounded-lg border"></span>
+            </div>
+
+            <div class="p-5 space-y-4 max-h-[70vh] overflow-y-auto">
+                <div>
+                    <h4 class="text-xs font-bold text-gray-400 tracking-wider mb-2 uppercase">🛒 Itens da Venda</h4>
+                    <div id="venda-detalhe-itens" class="space-y-2"></div>
+                </div>
+
+                <hr class="border-gray-100">
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <h4 class="text-xs font-bold text-gray-400 tracking-wider mb-1 uppercase">💳 Pagamento</h4>
+                        <p id="venda-detalhe-pagamento" class="text-sm font-semibold text-gray-700"></p>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-bold text-gray-400 tracking-wider mb-1 uppercase">📦 Tipo de Venda</h4>
+                        <p id="venda-detalhe-tipo" class="text-sm font-semibold text-gray-700"></p>
+                    </div>
+                </div>
+
+                <hr class="border-gray-100">
+
+                <div class="bg-gray-50 p-4 rounded-xl space-y-1.5 text-sm">
+                    <div class="flex justify-between text-gray-500 font-medium">
+                        <span>Subtotal:</span>
+                        <span id="venda-detalhe-subtotal"></span>
+                    </div>
+                    <div class="flex justify-between text-red-500 font-medium">
+                        <span>Desconto Aplicado:</span>
+                        <span id="venda-detalhe-desconto"></span>
+                    </div>
+                    <div class="flex justify-between text-gray-500 font-medium">
+                        <span>Frete/Entrega:</span>
+                        <span id="venda-detalhe-frete"></span>
+                    </div>
+                    <div class="flex justify-between text-gray-800 font-bold text-base pt-1.5 border-t border-gray-200">
+                        <span>Total Geral:</span>
+                        <span id="venda-detalhe-total" class="text-blue-900"></span>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold text-gray-400 tracking-wider mb-1 uppercase">📋 Observações Internas</h4>
+                    <p id="venda-detalhe-obs" class="text-sm text-gray-600 italic bg-gray-50 p-3 rounded-xl border border-gray-100"></p>
+                </div>
+            </div>
+
+            <div class="p-4 bg-gray-50 border-t border-gray-100 flex justify-end">
+                <button onclick="fecharVisualizar()" class="px-5 py-2 bg-blue-600 text-white font-bold text-sm rounded-xl hover:bg-blue-700 transition-all shadow-sm">
+                    Fechar Painel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const bancoVendas = {
+            "001": {
+                id: "#001", data: "06/04/2026", status: "Concluído",
+                statusClass: "text-green-700 bg-green-50 border-green-200",
+                pagamento: "Pix", tipo: "Pronta Entrega (Balcão)",
+                subtotal: "R$ 80,30", desconto: "0% (R$ 0,00)", frete: "R$ 0,00", total: "R$ 80,30",
+                obs: "Venda rápida realizada diretamente no caixa física do balcão.",
+                itens: [{ nome: "Ração Gato Adulto", qtd: 1, preco: "R$ 80,30" }]
+            },
+            "002": {
+                id: "#002", data: "06/04/2026", status: "Concluído",
+                statusClass: "text-green-700 bg-green-50 border-green-200",
+                pagamento: "Cartão de Crédito", tipo: "Entrega / Delivery",
+                subtotal: "R$ 60,50", desconto: "5% (R$ 3,03)", frete: "R$ 12,00", total: "R$ 69,47",
+                obs: "Enviar pelo motoboy no período da tarde.",
+                itens: [
+                    { nome: "Ração Top Dog", qtd: 2, preco: "R$ 12,00" },
+                    { nome: "Saco de ração coelho", qtd: 1, preco: "R$ 36,50" }
+                ]
+            },
+            "003": {
+                id: "#003", data: "05/04/2026", status: "Pendente",
+                statusClass: "text-amber-700 bg-amber-50 border-amber-200",
+                pagamento: "A combinar", tipo: "Encomenda",
+                subtotal: "R$ 109,50", desconto: "10% (R$ 10,95)", frete: "R$ 0,00", total: "R$ 98,55",
+                obs: "Encomenda especial sob reserva de estoque.",
+                itens: [{ nome: "Saco de ração coelho", qtd: 3, preco: "R$ 36,50" }]
+            },
+            "004": {
+                id: "#004", data: "06/04/2026", status: "Cancelado",
+                statusClass: "text-red-700 bg-red-50 border-red-200",
+                pagamento: "Dinheiro", tipo: "Pronta Entrega (Balcão)",
+                subtotal: "R$ 80,30", desconto: "0% (R$ 0,00)", frete: "R$ 0,00", total: "R$ 80,30",
+                obs: "Venda cancelada pelo operador devido à desistência do cliente.",
+                itens: [{ nome: "Ração Premiata 15kg", qtd: 1, preco: "R$ 80,30" }]
+            }
+        };
+
+        function abrirRecibo(id) {
+            const modal = document.getElementById('modal-recibo');
+            document.getElementById('recibo-id').textContent = '#' + id;
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.querySelector('div').classList.remove('scale-95');
+            }, 10);
+        }
+
+        function fecharRecibo() {
+            const modal = document.getElementById('modal-recibo');
+            modal.classList.add('opacity-0');
+            modal.querySelector('div').classList.add('scale-95');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+
+        function abrirVisualizar(id) {
+            const venda = bancoVendas[id];
+            if (!venda) return;
+
+            document.getElementById('venda-detalhe-id').textContent = venda.id;
+            document.getElementById('venda-detalhe-data').textContent = venda.data;
+            document.getElementById('venda-detalhe-pagamento').textContent = venda.pagamento;
+            document.getElementById('venda-detalhe-tipo').textContent = venda.tipo;
+            document.getElementById('venda-detalhe-subtotal').textContent = venda.subtotal;
+            document.getElementById('venda-detalhe-desconto').textContent = `- ${venda.desconto}`;
+            document.getElementById('venda-detalhe-frete').textContent = `+ ${venda.frete}`;
+            document.getElementById('venda-detalhe-total').textContent = venda.total;
+            document.getElementById('venda-detalhe-obs').textContent = venda.obs;
+
+            const badgeStatus = document.getElementById('venda-detalhe-status');
+            badgeStatus.textContent = venda.status;
+            badgeStatus.className = `px-2.5 py-1 text-xs font-bold rounded-lg border ${venda.statusClass}`;
+
+            const containerItens = document.getElementById('venda-detalhe-itens');
+            containerItens.innerHTML = '';
+            venda.itens.forEach(item => {
+                containerItens.innerHTML += `
+                    <div class="flex justify-between items-center bg-gray-50 p-2.5 rounded-xl border border-gray-100 text-sm">
+                        <div>
+                            <p class="font-semibold text-gray-800">${item.nome}</p>
+                            <span class="text-xs text-gray-400">Preço Unitário: ${item.preco}</span>
+                        </div>
+                        <span class="font-bold text-gray-600 bg-white px-2 py-0.5 rounded-lg border text-xs">Qtd: ${item.qtd}</span>
+                    </div>
+                `;
+            });
+
+            const modal = document.getElementById('modal-visualizar');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.querySelector('div').classList.remove('scale-95');
+            }, 10);
+        }
+
+        function fecharVisualizar() {
+            const modal = document.getElementById('modal-visualizar');
+            modal.classList.add('opacity-0');
+            modal.querySelector('div').classList.add('scale-95');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+
+        // FUNÇÃO DE FILTRAGEM COMBINADA (Pesquisa + Dropdown Status)
+        const txtPesquisa = document.getElementById('pesquisa-venda');
+        const selectStatus = document.getElementById('filtro-status');
+
+        function executarFiltros() {
+            const termo = txtPesquisa.value.toLowerCase().trim();
+            const statusFiltro = selectStatus.value.toLowerCase();
+
+            document.querySelectorAll('.linha-venda').forEach(linha => {
+                const idVenda = linha.children[0].textContent.toLowerCase();
+                const produtoPrincipal = linha.children[1].textContent.toLowerCase();
+                const statusTexto = linha.children[4].textContent.toLowerCase().trim();
+
+                const bateuPesquisa = idVenda.includes(termo) || produtoPrincipal.includes(termo);
+                const bateuStatus = statusFiltro === "" || statusTexto.includes(statusFiltro);
+
+                if (bateuPesquisa && bateuStatus) {
+                    linha.style.display = '';
+                } else {
+                    linha.style.display = 'none';
+                }
+            });
+        }
+
+        txtPesquisa.addEventListener('input', executarFiltros);
+        selectStatus.addEventListener('change', executarFiltros);
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mapeia os 3 elementos de controle
+            const inputPesquisa = document.getElementById('pesquisa-venda') || document.getElementById('input-pesquisa');
+            const filtroStatus = document.getElementById('filtro-status');
+            const filtroData = document.getElementById('filtro-data');
+
+            function executarFiltrosCombinados() {
+                const termoBusca = inputPesquisa ? inputPesquisa.value.toLowerCase().trim() : '';
+                const statusSelecionado = filtroStatus ? filtroStatus.value.toLowerCase() : '';
+                const dataSelecionada = filtroData ? filtroData.value : ''; // Formato nativo: YYYY-MM-DD
+
+                // Converte o formato do input (YYYY-MM-DD) para o formato da sua tabela (DD/MM/YYYY)
+                let dataFormatada = '';
+                if (dataSelecionada) {
+                    const [ano, mes, dia] = dataSelecionada.split('-');
+                    dataFormatada = `${dia}/${mes}/${ano}`;
+                }
+
+                // Seleciona as linhas de dados da tabela
+                const linhas = document.querySelectorAll('tbody tr');
+
+                linhas.forEach(linha => {
+                    const colunas = linha.querySelectorAll('td');
+                    if (colunas.length < 5) return; // Ignora linhas vazias ou de cabeçalho
+
+                    // Captura os textos das colunas específicas da sua tabela de vendas
+                    const textoID = colunas[0].textContent.toLowerCase();
+                    const textoProduto = colunas[1].textContent.toLowerCase();
+                    const textoData = colunas[2].textContent.trim();
+                    const textoStatus = colunas[4].textContent.toLowerCase();
+
+                    // Regras lógicas de filtragem (Retorna true se bater com o filtro ou se o filtro estiver vazio)
+                    const bateBusca = termoBusca === '' || textoID.includes(termoBusca) || textoProduto.includes(termoBusca);
+                    const bateStatus = statusSelecionado === '' || textoStatus.includes(statusSelecionado);
+                    const bateData = dataSelecionada === '' || textoData === dataFormatada;
+
+                    // Exibe a linha apenas se ela passar com sucesso por TODOS os filtros ativos
+                    if (bateBusca && bateStatus && bateData) {
+                        linha.style.display = '';
+                    } else {
+                        linha.style.display = 'none';
+                    }
+                });
+            }
+
+            // Adiciona os ouvintes de eventos para atualizar a tabela em tempo real
+            if (inputPesquisa) inputPesquisa.addEventListener('input', executarFiltrosCombinados);
+            if (filtroStatus) filtroStatus.addEventListener('change', executarFiltrosCombinados);
+            if (filtroData) filtroData.addEventListener('change', executarFiltrosCombinados);
+        });
+    </script>
+
 
 <script src="sidebar.js"></script>
 </body>

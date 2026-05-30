@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FishAqua Pets - Cadastrar Serviço</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body overflow-x-hidden">
+
+    <div id="layout-wrapper" class="flex min-h-screen">
+
+        <aside id="app-sidebar" class="sidebar-container shadow-figma fixed top-0 left-0 h-full z-40 transform translate-x-0 transition-transform duration-300">
+            <div class="sidebar-header">
+                <div class="profile-box">
+                    <div class="profile-avatar">
+                        <img src="imagens/logo.png" alt="Avatar" class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <span class="profile-name">Olá! Jhon Doe.</span>
+                </div>
+                <button id="btn-close-sidebar" class="sidebar-toggle-btn close-btn">◀</button>
+            </div>
+
+            <div class="sidebar-item darkmode-toggle">
+                <span class="item-text text-gray-700">Modo noturno</span>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <hr class="sidebar-divider">
+
+            <nav class="sidebar-nav">
+                <a href="index.html" class="sidebar-link">
+                    <span class="nav-icon">🏠</span>
+                    <span class="item-text">Pagina inicial</span>
+                </a>
+                <a href="estoque.html" class="sidebar-link">
+                    <span class="nav-icon">📦</span>
+                    <span class="item-text">Estoque</span>
+                </a>
+                <a href="vendas.html" class="sidebar-link">
+                    <span class="nav-icon">💵</span>
+                    <span class="item-text">Vendas</span>
+                </a>
+                <a href="servicos.html" class="sidebar-link active">
+                    <span class="nav-icon">🛠️</span>
+                    <span class="item-text">Serviços</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="https://www.instagram.com/fishaquapets/" target="_blank" class="sidebar-link">
+                    <span class="nav-icon">📸</span>
+                    <span class="item-text">Instagram</span>
+                </a>
+                <a href="central-ajuda.html" class="sidebar-link">
+                    <span class="nav-icon">❓</span>
+                    <span class="item-text">Central de ajuda</span>
+                </a>
+            </div>
+        </aside>
+
+        <main id="main-content" class="main-content-area flex-1 p-8 ml-64 transition-all duration-300 !w-full !max-w-none">
+            
+            <header class="w-full max-w-[1400px] mx-auto mb-8">
+                <div class="flex items-center justify-between flex-wrap gap-4">
+                    <div class="flex items-center gap-4">
+                        <img src="imagens/logo.png" alt="Logo FishAqua Pets" class="w-12 h-12 object-cover rounded-full shadow-sm">
+                        <div class="flex flex-col">
+                            <span class="text-2xl font-black text-[var(--navy-primary)] tracking-wide leading-none">FISH AQUA PETS 🦴</span>
+                            <nav class="text-xs text-gray-400 font-medium mt-2">
+                                Serviços &nbsp;•&nbsp; <span class="text-gray-600 font-semibold">Novo Cadastro</span>
+                            </nav>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-3">
+                        <a href="servicos.html" class="px-6 py-2.5 bg-white border border-gray-200 text-gray-500 text-sm font-bold rounded-xl hover:bg-gray-50 transition-all">
+                            Cancelar
+                        </a>
+                        <button type="submit" form="form-servico" class="px-6 py-2.5 bg-blue-600 text-white text-sm font-bold rounded-xl shadow-lg shadow-blue-200 hover:bg-blue-700 transition-all">
+                            💾 Salvar Serviço
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <form id="form-servico" onsubmit="event.preventDefault(); window.location.href='servicos.html';" class="w-full max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">                
+                
+                <div class="lg:col-span-2 space-y-8">
+                    
+                    <section class="bg-white rounded-2xl shadow-figma border border-gray-100 p-8">
+                        <h2 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-6 flex items-center gap-2">
+                            🛠️ Identificação Básica
+                        </h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="md:col-span-2">
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Nome do Serviço *</label>
+                                <input type="text" placeholder="Ex: Limpeza Completa de Lago Ornamental" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm font-medium">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Código do Serviço (SKU)</label>
+                                <input type="text" placeholder="SRV-000" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm font-mono font-medium">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Tipo / Categoria</label>
+                                <select class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm font-medium">
+                                    <option>Selecione uma categoria</option>
+                                    <option>Limpeza Geral</option>
+                                    <option>Manutenção Preventiva</option>
+                                    <option>Restauração / Paisagismo</option>
+                                    <option>Instalação / Montagem</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="bg-white rounded-2xl shadow-figma border border-gray-100 p-8">
+                        <h2 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-6 flex items-center gap-2">
+                            💰 Valores e Tipo de Cobrança
+                        </h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Preço Cobrado do Cliente (R$)</label>
+                                <input id="preco-cliente" type="text" placeholder="0,00" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm font-bold text-blue-600">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Custo Estimado de Insumos/Deslocamento (R$)</label>
+                                <input id="custo-servico" type="text" placeholder="0,00" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm font-bold text-gray-600">
+                            </div>
+                            
+                            <div class="md:col-span-2 text-xs font-semibold text-gray-400 mt-2" id="resultado-lucro">
+                                Margem estimada: <span class="text-gray-500">Preencha os valores para calcular</span>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Tipo de Contrato</label>
+                                <select id="tipo-contrato" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm font-medium">
+                                    <option value="avulso">Serviço Avulso (Único)</option>
+                                    <option value="assinatura">Recorrente / Assinatura</option>
+                                </select>
+                            </div>
+                            <div id="container-frequencia" class="transition-all duration-300">
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Frequência da Recorrência</label>
+                                <select class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm font-medium">
+                                    <option>Não aplicável (Avulso)</option>
+                                    <option>Semanal</option>
+                                    <option>Quinzenal</option>
+                                    <option>Mensal</option>
+                                    <option>Trimestral</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="bg-white rounded-2xl shadow-figma border border-gray-100 p-8">
+                        <h2 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-6 flex items-center gap-2">
+                            📝 O que está incluso no serviço? (Escopo)
+                        </h2>
+                        <textarea placeholder="Ex: Teste de parâmetros da água (pH, amônia), aspiração de fundo, limpeza dos filtros mecânicos e químicos, aplicação de condicionadores e poda de plantas aquáticas..." class="w-full h-40 px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm font-medium resize-none"></textarea>
+                        <p class="text-[10px] text-gray-400 mt-2">Essa descrição serve de guia para o técnico no momento da execução.</p>
+                    </section>
+                </div>
+
+                <div class="lg:col-span-1 space-y-8">
+                    
+                    <section class="bg-white rounded-2xl shadow-figma border border-gray-100 p-8">
+                        <label class="block text-xs font-bold text-gray-500 uppercase mb-4">Status no Sistema</label>
+                        <div class="flex items-center gap-3 p-3 bg-green-50 rounded-xl border border-green-100">
+                            <input type="checkbox" checked class="w-5 h-5 accent-green-600">
+                            <span class="text-sm font-bold text-green-700">Serviço Ativo</span>
+                        </div>
+                    </section>
+
+                    <section class="bg-white rounded-2xl shadow-figma border border-gray-100 p-8">
+                        <h2 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-6">📅 Planejamento da Agenda</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Tempo Estimado de Execução (Horas)</label>
+                                <input type="number" value="2" step="0.5" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm font-bold text-gray-800">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Volume Máximo do Ecossistema (Litros)</label>
+                                <input type="number" placeholder="Ex: 2000" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm font-bold text-gray-800">
+                            </div>
+                        </div>
+
+                        <div class="mt-8 space-y-4 pt-6 border-t border-gray-50">
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input type="checkbox" class="w-4 h-4 accent-blue-600">
+                                <span class="text-xs font-semibold text-gray-600 group-hover:text-gray-800 transition-colors">Requer Visita Técnica de Avaliação</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input type="checkbox" checked class="w-4 h-4 accent-blue-600">
+                                <span class="text-xs font-semibold text-gray-600 group-hover:text-gray-800 transition-colors">Emitir Alerta de Renovação ao Cliente</span>
+                            </label>
+                        </div>
+                    </section>
+
+                    <div class="p-6 bg-blue-600 rounded-2xl shadow-xl shadow-blue-100">
+                        <div class="text-white text-xl mb-2">💡</div>
+                        <p class="text-blue-50 text-xs leading-relaxed font-medium">
+                            Dica: Vincular o volume em litros ajuda a evitar que um serviço precificado para um aquário residencial seja contratado para um lago comercial de grande porte.
+                        </p>
+                    </div>
+
+                </div>
+
+            </form>
+
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tipoContrato = document.getElementById('tipo-contrato');
+            const containerFrequencia = document.getElementById('container-frequencia');
+            const precoInput = document.getElementById('preco-cliente');
+            const custoInput = document.getElementById('custo-servico');
+            const resultadoLucro = document.getElementById('resultado-lucro');
+
+            // 1. Interação de Mostrar/Esconder Frequência
+            if (tipoContrato && containerFrequencia) {
+                // Começa escondido se for avulso
+                containerFrequencia.style.display = tipoContrato.value === 'assinatura' ? 'block' : 'none';
+
+                tipoContrato.addEventListener('change', () => {
+                    if (tipoContrato.value === 'assinatura') {
+                        containerFrequencia.style.display = 'block';
+                    } else {
+                        containerFrequencia.style.display = 'none';
+                    }
+                });
+            }
+
+            // 2. Interação de Cálculo de Lucro em Tempo Real
+            function calcularLucro() {
+                // Converte formatos de moeda "150,00" para número puro "150.00"
+                const preco = parseFloat(precoInput.value.replace(',', '.')) || 0;
+                const custo = parseFloat(custoInput.value.replace(',', '.')) || 0;
+
+                if (preco > 0) {
+                    const lucro = preco - custo;
+                    const margem = (lucro / preco) * 100;
+                    
+                    if (lucro >= 0) {
+                        resultadoLucro.innerHTML = `Lucro est.: <span class="text-green-600 font-bold">R$ ${lucro.toFixed(2).replace('.', ',')}</span> (${margem.toFixed(0)}% de margem)`;
+                    } else {
+                        resultadoLucro.innerHTML = `Margem est.: <span class="text-red-500 font-bold">Atenção: Custo maior que o preço!</span>`;
+                    }
+                } else {
+                    resultadoLucro.innerHTML = `Margem estimada: <span class="text-gray-500">Preencha os valores para calcular</span>`;
+                }
+            }
+
+            if (precoInput && custoInput) {
+                precoInput.addEventListener('input', calcularLucro);
+                custoInput.addEventListener('input', calcularLucro);
+            }
+        });
+    </script>
+
+    <script src="sidebar.js"></script>
+</body>
+</html>

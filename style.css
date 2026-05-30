@@ -708,3 +708,112 @@ input:checked + .slider:before { transform: translateX(1.25rem); }
 
 /* Os outros estilos de sale-info, sale-meta, status-tag permanecem os mesmos */
 
+/* ==========================================================================
+   CONFIGURAÇÕES GLOBAIS DO MODO NOTURNO (DARK MODE OVERRIDES)
+   ========================================================================== */
+
+/* Cores de Fundo Principais */
+body.dark-mode {
+    background-color: #0f172a !important; /* Slate 900 */
+    color: #f8fafc !important;
+}
+
+/* Transforma tudo que é card, sidebar, modal e tabela branca em cinza escuro */
+body.dark-mode .bg-white,
+body.dark-mode .sidebar-container,
+body.dark-mode #modal-visualizar > div,
+body.dark-mode .bg-gray-50\/75,
+body.dark-mode .bg-gray-50 {
+    background-color: #1e293b !important; /* Slate 800 */
+    border-color: #334155 !important;
+}
+
+/* Ajuste sutil para linhas e divisores */
+body.dark-mode border-gray-100,
+body.dark-mode .border-gray-100,
+body.dark-mode .border-gray-200,
+body.dark-mode .sidebar-divider,
+body.dark-mode divide-gray-100 > * {
+    border-color: #334155 !important;
+}
+
+/* Ajustes de Textos Principais */
+body.dark-mode .text-gray-800,
+body.dark-mode .text-gray-700,
+body.dark-mode .profile-name,
+body.dark-mode .item-text {
+    color: #f1f5f9 !important; /* Quase branco */
+}
+
+/* Ajustes de Textos Secundários e Legendas */
+body.dark-mode .text-gray-600,
+body.dark-mode .text-gray-500,
+body.dark-mode .text-gray-400 {
+    color: #94a3b8 !important; /* Cinza claro */
+}
+
+/* Customização de Inputs, Selects e Barras de Pesquisa */
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode .search-input {
+    background-color: #334155 !important; /* Slate 700 */
+    color: #f1f5f9 !important;
+    border-color: #475569 !important;
+}
+
+body.dark-mode input::placeholder {
+    color: #64748b !important;
+}
+
+/* Ajuste de Hovers na Tabela e nos Cards */
+body.dark-mode .hover\:bg-blue-50\/20:hover {
+    background-color: rgba(51, 65, 85, 0.4) !important;
+}
+
+body.dark-mode .bg-blue-50\/40 {
+    background-color: rgba(30, 41, 59, 0.8) !important;
+    border-color: #3b82f6 !important;
+}
+
+/* Garante que o dropdown de "Mais ações" fique escuro */
+body.dark-mode #dropdown-acoes,
+body.dark-mode #dropdown-acoes button {
+    background-color: #1e293b !important;
+    color: #f1f5f9 !important;
+}
+body.dark-mode #dropdown-acoes button:hover {
+    background-color: #334155 !important;
+}
+
+/* ==========================================================================
+   CORREÇÃO DE SOMBRAS E GLOWS NO MODO NOTURNO
+   ========================================================================== */
+
+/* Reseta as variáveis de sombra do Tailwind para usarem um tom escuro profundo */
+body.dark-mode * {
+    --tw-shadow-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Suaviza e adapta todas as elevações de cards para o fundo escuro */
+body.dark-mode .shadow-figma,
+body.dark-mode .shadow-md,
+body.dark-mode .shadow-lg,
+body.dark-mode .shadow-xl,
+body.dark-mode .shadow-2xl {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 
+                0 8px 10px -6px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Corrige os halos claros das barras do gráfico e do banner da central de ajuda */
+body.dark-mode .shadow-blue-100 {
+    box-shadow: 0 4px 12px 0 rgba(59, 130, 246, 0.25) !important; /* Brilho azul sutil e elegante */
+}
+
+body.dark-mode .shadow-emerald-100 {
+    box-shadow: 0 4px 12px 0 rgba(16, 185, 129, 0.25) !important; /* Brilho verde sutil e elegante */
+}
+
+/* Remove bordas brancas fantasmas que possam aparecer nos cards */
+body.dark-mode .border-gray-100\/50 {
+    border-color: rgba(51, 65, 85, 0.5) !important;
+}

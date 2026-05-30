@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FishAqua Pets - Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Executa antes da renderização para evitar o flash branco
+        try {
+            const temaSalvo = localStorage.getItem('fishaqua-theme');
+            if (temaSalvo === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        } catch (e) {
+            console.log('Acesso local via file:// restringe o localStorage em alguns navegadores.');
+        }
+    </script>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 bg-slate-50 transition-colors duration-300 relative">
+
+    <div class="absolute top-6 right-6 flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-3 py-2 shadow-sm darkmode-toggle-login">
+        <span class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Modo Noturno</span>
+        <label class="switch relative inline-block w-8 h-4">
+            <input type="checkbox" id="btn-dark-login" class="opacity-0 w-0 h-0">
+            <span class="slider round absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-200 transition-all duration-300 rounded-full before:absolute before:content-[''] before:h-3 before:w-3 before:left-0.5 before:bottom-0.5 before:bg-white before:transition-all before:duration-300 before:rounded-full"></span>
+        </label>
+    </div>
+
+    <div class="w-full max-w-md bg-white border border-gray-100/80 rounded-3xl p-8 shadow-figma transition-all duration-300 relative overflow-hidden">
+        
+        <div class="absolute -right-10 -top-10 w-32 h-32 bg-blue-500/5 rounded-full blur-xl pointer-events-none"></div>
+        <div class="absolute -left-10 -bottom-10 w-32 h-32 bg-cyan-500/5 rounded-full blur-xl pointer-events-none"></div>
+
+        <div class="text-center mb-8">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-blue-50/50 p-2 mb-4 border border-blue-100/40">
+                <img src="imagens/logo.png" alt="Logo FishAqua Pets" class="w-full h-full object-cover rounded-xl shadow-sm">
+            </div>
+            <h1 class="text-xl font-black text-gray-800 tracking-wide uppercase leading-none mb-1">FISH AQUA PETS 🦴</h1>
+            <p class="text-xs font-semibold text-gray-400">Insira suas credenciais para acessar o ERP</p>
+        </div>
+
+        <form action="index.html" method="GET" class="space-y-5">
+            
+            <div>
+                <label for="username" class="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2">Usuário ou E-mail</label>
+                <div class="relative">
+                    <span class="absolute left-4 top-3.5 text-gray-400 text-sm">👤</span>
+                    <input type="text" id="username" required placeholder="ex: jhon.doe" 
+                           class="w-full pl-11 pr-4 py-3 text-sm rounded-xl text-gray-800 outline-none border border-gray-200/80 font-medium focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all bg-gray-50/50">
+                </div>
+            </div>
+
+            <div>
+                <div class="flex items-center justify-between mb-2">
+                    <label for="password" class="block text-[11px] font-bold text-gray-400 uppercase tracking-wider">Senha Secreta</label>
+                    <a href="#" onclick="alert('Contate o administrador do sistema para resetar sua senha.')" class="text-[11px] font-bold text-blue-600 hover:underline">Esqueceu?</a>
+                </div>
+                <div class="relative">
+                    <span class="absolute left-4 top-3.5 text-gray-400 text-sm">🔒</span>
+                    <input type="password" id="password" required placeholder="••••••••" 
+                           class="w-full pl-11 pr-4 py-3 text-sm rounded-xl text-gray-800 outline-none border border-gray-200/80 font-medium focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all bg-gray-50/50">
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-1">
+                <label class="flex items-center gap-2 cursor-pointer group">
+                    <input type="checkbox" class="w-4 h-4 accent-blue-600 rounded border-gray-300">
+                    <span class="text-xs font-semibold text-gray-500 group-hover:text-gray-700 transition-colors select-none">Manter conectado</span>
+                </label>
+            </div>
+
+            <button type="submit" 
+                    class="w-full py-3.5 bg-blue-600 text-white rounded-xl text-xs font-black uppercase tracking-widest hover:bg-blue-700 active:scale-[0.98] transition-all shadow-lg shadow-blue-500/20 mt-2">
+                Entrar no Painel ➔
+            </button>
+
+        </form>
+
+        <div class="text-center mt-8 pt-6 border-t border-gray-100/60">
+            <p class="text-[10px] font-semibold text-gray-400">
+                FishAqua Pets ERP v2.0 • Desenvolvido por ADS
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        const chkDarkLogin = document.getElementById('btn-dark-login');
+
+        function alternarTemaLogin(isDark) {
+            if (isDark) {
+                document.body.classList.add('dark-mode');
+                document.documentElement.classList.add('dark-mode');
+                if(chkDarkLogin) chkDarkLogin.checked = true;
+                try { localStorage.setItem('fishaqua-theme', 'dark'); } catch(e){}
+            } else {
+                document.body.classList.remove('dark-mode');
+                document.documentElement.classList.remove('dark-mode');
+                if(chkDarkLogin) chkDarkLogin.checked = false;
+                try { localStorage.setItem('fishaqua-theme', 'light'); } catch(e){}
+            }
+        }
+
+        // Carrega o estado inicial
+        try {
+            const temaSalvo = localStorage.getItem('fishaqua-theme');
+            alternarTemaLogin(temaSalvo === 'dark');
+        } catch (e) {
+            alternarTemaLogin(document.documentElement.classList.contains('dark-mode'));
+        }
+
+        // Ouvinte do clique do botão do login
+        if(chkDarkLogin) {
+            chkDarkLogin.addEventListener('change', () => {
+                alternarTemaLogin(chkDarkLogin.checked);
+            });
+        }
+    </script>
+
+    <style>
+        /* Estilização rápida do switch para não quebrar caso falte o style.css */
+        .switch input:checked + .slider { background-color: #3b82f6; }
+        .switch input:checked + .slider:before { transform: translateX(16px); }
+        body.dark-mode .darkmode-toggle-login { background-color: #1e293b !important; border-color: #334155 !important; }
+    </style>
+</body>
+</html>
