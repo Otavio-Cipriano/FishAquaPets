@@ -506,9 +506,6 @@ body {
     border: 1px solid #EF4444;
 }
 
-/* ==========================================================================
-   ESTILOS CORRIGIDOS DA BARRA LATERAL E LAYOUT (TELA VENDAS)
-   ========================================================================== */
 
 /* ==========================================================================
    ESTILOS CORRIGIDOS DA BARRA LATERAL E LAYOUT (TELA VENDAS)
@@ -671,7 +668,7 @@ input:checked + .slider:before { transform: translateX(1.25rem); }
    CORREÇÃO DO CONTEÚDO PRINCIPAL (TELA VENDAS)
    ========================================================================== */
 
-/* Removemos a margem negativa e a largura zero da sidebar, e controlamos a transição do main */
+/* Remove a margem negativa e a largura zero da sidebar, e controla a transição do main */
 
 .dashboard-search {
     flex-grow: 1;
