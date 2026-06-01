@@ -15,27 +15,6 @@
             y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
         })(window, document, "clarity", "script", "wzvdssrlpp"); // substitua pelo seu Project ID
     </script>
-
-    <!-- Forçar encerramento de sessão -->
-    <script type="text/javascript">
-        // Quando o usuário muda de aba
-        document.addEventListener("visibilitychange", function() {
-            if (document.hidden) {
-                clarity("set", "page", window.location.pathname + "?closed=" + Date.now());
-            }
-        });
-
-        // Após 30 minutos de inatividade
-        let inactivityTimer;
-        function resetTimer() {
-            clearTimeout(inactivityTimer);
-            inactivityTimer = setTimeout(() => {
-                clarity("set", "page", window.location.pathname + "?timeout=" + Date.now());
-            }, 1800000); // 30 minutos
-        }
-        window.onload = resetTimer;
-        document.onmousemove = resetTimer;
-        document.onkeypress = resetTimer;
     </script>
 </head>
 <body class="dashboard-body overflow-x-hidden">
